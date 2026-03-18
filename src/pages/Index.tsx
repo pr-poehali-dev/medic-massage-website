@@ -5,7 +5,25 @@ const TG_URL = "https://t.me/fuga_massage";
 const WA_URL = "https://wa.me/79999415900";
 const VK_URL = "https://vk.com/fuga.massage";
 
-const DISK_BASE = "https://disk.yandex.ru/d/iF680p4_u2n70g";
+const CDN = "https://cdn.poehali.dev/projects/c0dec346-cf40-47da-b6b8-4fdb33a3e01e/bucket/files/massage";
+
+const PHOTOS = {
+  // Процесс работы
+  process1: `${CDN}/process/DSC00831.JPEG`,
+  process2: `${CDN}/process/DSC00842.JPEG`,
+  process3: `${CDN}/process/DSC00881.JPEG`,
+  process4: `${CDN}/process/DSC00890.JPEG`,
+  process5: `${CDN}/process/IMG_0616.jpg`,
+  process6: `${CDN}/process/IMG_0617.jpg`,
+  // Кейсы до и после
+  case1: `${CDN}/cases/IMG_0530.jpg`,
+  case2: `${CDN}/cases/IMG_0626.jpg`,
+  case3: `${CDN}/cases/IMG_4395.JPG`,
+  case4: `${CDN}/cases/IMG_4396.JPG`,
+  case5: `${CDN}/cases/IMG_4607.JPG`,
+  // Отзывы
+  review1: `${CDN}/reviews/IMG_0610.jpg`,
+};
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -191,20 +209,9 @@ export default function Index() {
             <div className="relative">
               <div className="rounded-2xl overflow-hidden aspect-[4/5]" style={{ backgroundColor: "var(--beige)" }}>
                 <img
-                  src="https://avatars.mds.yandex.net/get-disk-public/4033726/hhh/dmitry-masseur-portrait.jpg"
+                  src={PHOTOS.process1}
                   alt="Дмитрий Хохлов — специалист по массажу"
                   className="w-full h-full object-cover"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    target.parentElement!.innerHTML = `
-                      <div class="w-full h-full flex flex-col items-center justify-center gap-4" style="background:var(--beige)">
-                        <div style="width:120px;height:120px;border-radius:50%;background:var(--beige-dark);display:flex;align-items:center;justify-content:center">
-                          <svg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24' fill='none' stroke='var(--warm-gray)' stroke-width='1.5'><circle cx='12' cy='8' r='4'/><path d='M4 20c0-4 3.6-7 8-7s8 3 8 7'/></svg>
-                        </div>
-                        <p style="font-family:Golos Text,sans-serif;color:var(--warm-gray);font-size:14px">Дмитрий Хохлов</p>
-                      </div>`;
-                  }}
                 />
               </div>
               <div className="absolute -bottom-4 -left-4 px-5 py-4 rounded-xl shadow-lg" style={{ backgroundColor: "#fff" }}>
@@ -278,15 +285,11 @@ export default function Index() {
             <RevealSection>
               <div className="relative">
                 <div className="rounded-2xl overflow-hidden aspect-[3/4]" style={{ backgroundColor: "var(--beige-dark)" }}>
-                  <div className="w-full h-full flex flex-col items-center justify-center gap-6" style={{ background: "linear-gradient(135deg, var(--beige-dark) 0%, var(--beige) 100%)" }}>
-                    <div className="w-32 h-32 rounded-full flex items-center justify-center" style={{ backgroundColor: "var(--cream)" }}>
-                      <Icon name="User" size={56} style={{ color: "var(--warm-gray)" }} />
-                    </div>
-                    <div className="text-center">
-                      <p className="font-cormorant text-2xl font-semibold mb-1" style={{ color: "var(--graphite)" }}>Дмитрий Хохлов</p>
-                      <p className="font-golos text-sm" style={{ color: "var(--warm-gray)" }}>Специалист по массажу и реабилитации</p>
-                    </div>
-                  </div>
+                  <img
+                    src={PHOTOS.process4}
+                    alt="Дмитрий Хохлов за работой"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="absolute -bottom-5 -right-5 grid grid-cols-2 gap-3">
                   <div className="px-4 py-3 rounded-xl text-center shadow-md" style={{ backgroundColor: "#fff" }}>
@@ -375,6 +378,24 @@ export default function Index() {
                     <h3 className="font-cormorant text-2xl font-semibold mb-2" style={{ color: "var(--graphite)" }}>{s.title}</h3>
                     <p className="font-golos text-sm leading-relaxed" style={{ color: "var(--graphite-light)" }}>{s.desc}</p>
                   </div>
+                </div>
+              </RevealSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PHOTO GALLERY */}
+      <section className="py-16">
+        <div className="max-w-6xl mx-auto px-5">
+          <RevealSection>
+            <p className="font-golos text-xs font-medium tracking-widest uppercase mb-6 text-center" style={{ color: "var(--warm-gray)" }}>Из рабочего процесса</p>
+          </RevealSection>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+            {[PHOTOS.process2, PHOTOS.process3, PHOTOS.process5, PHOTOS.process6, PHOTOS.case2, PHOTOS.case5].map((src, i) => (
+              <RevealSection key={i} delay={i * 70}>
+                <div className={`rounded-xl overflow-hidden ${i === 0 || i === 5 ? "aspect-[4/5]" : "aspect-square"}`} style={{ backgroundColor: "var(--beige)" }}>
+                  <img src={src} alt={`Процесс работы ${i + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
               </RevealSection>
             ))}
@@ -578,14 +599,13 @@ export default function Index() {
                   </p>
                 </div>
               </div>
-              <div className="flex flex-col justify-center gap-6">
-                <div className="p-6 rounded-2xl text-center" style={{ backgroundColor: "var(--beige)" }}>
-                  <p className="font-cormorant text-5xl font-light mb-2" style={{ color: "var(--green)" }}>5</p>
-                  <p className="font-golos text-sm" style={{ color: "var(--warm-gray)" }}>сеансов в курсе</p>
+              <div className="flex flex-col justify-center gap-4">
+                <div className="rounded-xl overflow-hidden aspect-[3/4]" style={{ backgroundColor: "var(--beige)" }}>
+                  <img src={PHOTOS.case3} alt="До и после — результат работы" className="w-full h-full object-cover" />
                 </div>
-                <div className="p-6 rounded-2xl text-center" style={{ backgroundColor: "var(--beige)" }}>
-                  <Icon name="Moon" size={32} className="mx-auto mb-2" style={{ color: "var(--green)" }} />
-                  <p className="font-golos text-sm" style={{ color: "var(--graphite-light)" }}>Сон восстановился с 3-го сеанса</p>
+                <div className="p-4 rounded-xl text-center" style={{ backgroundColor: "var(--beige)" }}>
+                  <p className="font-cormorant text-4xl font-light mb-1" style={{ color: "var(--green)" }}>5</p>
+                  <p className="font-golos text-xs" style={{ color: "var(--warm-gray)" }}>сеансов в курсе</p>
                 </div>
               </div>
             </div>
