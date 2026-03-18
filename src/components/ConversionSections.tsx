@@ -4,37 +4,7 @@ import { TG_URL, WA_URL, VK_URL, PHOTOS, prices, RevealSection } from "@/compone
 export default function ConversionSections() {
   return (
     <>
-      {/* PROMO */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-5">
-          <RevealSection>
-            <div className="rounded-2xl p-10 md:p-14 text-center relative overflow-hidden" style={{ background: "linear-gradient(135deg, var(--green) 0%, #3a5a48 100%)" }}>
-              <div className="absolute inset-0 pointer-events-none opacity-10" style={{ backgroundImage: "radial-gradient(circle at 80% 20%, rgba(255,255,255,0.3) 0%, transparent 60%)" }} />
-              <span className="inline-block font-cormorant text-8xl font-light mb-4" style={{ color: "rgba(255,255,255,0.15)" }}>-20%</span>
-              <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-4" style={{ color: "#fff" }}>
-                Скидка на первый приём
-              </h2>
-              <p className="font-golos text-base mb-8" style={{ color: "rgba(255,255,255,0.8)" }}>
-                Запишитесь на первый сеанс со скидкой 20%. Просто напишите в WhatsApp или Telegram.
-              </p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <a href={TG_URL} target="_blank" rel="noreferrer" className="flex items-center gap-2 px-7 py-3.5 rounded-full font-golos font-medium transition-all hover:scale-105"
-                  style={{ backgroundColor: "#fff", color: "var(--green)" }}>
-                  <Icon name="Send" size={18} />
-                  Telegram
-                </a>
-                <a href={WA_URL} target="_blank" rel="noreferrer" className="flex items-center gap-2 px-7 py-3.5 rounded-full font-golos font-medium border-2 transition-all hover:scale-105"
-                  style={{ borderColor: "rgba(255,255,255,0.6)", color: "#fff" }}>
-                  <Icon name="MessageCircle" size={18} />
-                  WhatsApp
-                </a>
-              </div>
-            </div>
-          </RevealSection>
-        </div>
-      </section>
-
-      {/* PRICE */}
+      {/* PRICE — Прайс */}
       <section id="price" className="py-24" style={{ backgroundColor: "var(--beige)" }}>
         <div className="max-w-4xl mx-auto px-5">
           <RevealSection>
@@ -69,8 +39,38 @@ export default function ConversionSections() {
         </div>
       </section>
 
-      {/* CASE */}
-      <section className="py-24">
+      {/* PROMO — Акция на первое посещение */}
+      <section className="py-20">
+        <div className="max-w-4xl mx-auto px-5">
+          <RevealSection>
+            <div className="rounded-2xl p-10 md:p-14 text-center relative overflow-hidden" style={{ background: "linear-gradient(135deg, var(--green) 0%, #3a5a48 100%)" }}>
+              <div className="absolute inset-0 pointer-events-none opacity-10" style={{ backgroundImage: "radial-gradient(circle at 80% 20%, rgba(255,255,255,0.3) 0%, transparent 60%)" }} />
+              <span className="inline-block font-cormorant text-8xl font-light mb-4" style={{ color: "rgba(255,255,255,0.15)" }}>-20%</span>
+              <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-4" style={{ color: "#fff" }}>
+                Скидка на первый приём
+              </h2>
+              <p className="font-golos text-base mb-8" style={{ color: "rgba(255,255,255,0.8)" }}>
+                Запишитесь на первый сеанс со скидкой 20%. Просто напишите в WhatsApp или Telegram.
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <a href={TG_URL} target="_blank" rel="noreferrer" className="flex items-center gap-2 px-7 py-3.5 rounded-full font-golos font-medium transition-all hover:scale-105"
+                  style={{ backgroundColor: "#fff", color: "var(--green)" }}>
+                  <Icon name="Send" size={18} />
+                  Telegram
+                </a>
+                <a href={WA_URL} target="_blank" rel="noreferrer" className="flex items-center gap-2 px-7 py-3.5 rounded-full font-golos font-medium border-2 transition-all hover:scale-105"
+                  style={{ borderColor: "rgba(255,255,255,0.6)", color: "#fff" }}>
+                  <Icon name="MessageCircle" size={18} />
+                  WhatsApp
+                </a>
+              </div>
+            </div>
+          </RevealSection>
+        </div>
+      </section>
+
+      {/* CASE — Кейсы / результаты */}
+      <section className="py-24" style={{ backgroundColor: "var(--beige)" }}>
         <div className="max-w-4xl mx-auto px-5">
           <RevealSection>
             <span className="inline-block text-xs font-golos font-medium tracking-widest uppercase mb-4" style={{ color: "var(--green)" }}>История клиента</span>
@@ -81,13 +81,13 @@ export default function ConversionSections() {
           <RevealSection delay={100}>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="md:col-span-2 space-y-5">
-                <div className="p-6 rounded-2xl" style={{ backgroundColor: "var(--beige)" }}>
+                <div className="p-6 rounded-2xl" style={{ backgroundColor: "var(--cream)" }}>
                   <p className="font-golos text-xs font-medium uppercase tracking-widest mb-3" style={{ color: "var(--warm-gray)" }}>Ситуация</p>
                   <p className="font-golos text-base leading-relaxed" style={{ color: "var(--graphite-light)" }}>
                     Мужчина, 38 лет. Сидячая работа, долгое время беспокоила шейно-воротниковая зона — напряжение, ощущение «каски» на голове. Из-за этого сложно засыпать, часто просыпается ночью.
                   </p>
                 </div>
-                <div className="p-6 rounded-2xl" style={{ backgroundColor: "var(--beige)" }}>
+                <div className="p-6 rounded-2xl" style={{ backgroundColor: "var(--cream)" }}>
                   <p className="font-golos text-xs font-medium uppercase tracking-widest mb-3" style={{ color: "var(--warm-gray)" }}>Что сделали</p>
                   <p className="font-golos text-base leading-relaxed" style={{ color: "var(--graphite-light)" }}>
                     На первом приёме разобрались в причине: мышечные блоки в шее и грудном отделе, нарушенный баланс нагрузки из-за позы за компьютером. Курс из 5 сеансов — миофасциальный массаж, работа с грудным отделом, рекомендации по позиции за рабочим местом.
@@ -101,10 +101,10 @@ export default function ConversionSections() {
                 </div>
               </div>
               <div className="flex flex-col justify-center gap-4">
-                <div className="rounded-xl overflow-hidden aspect-[3/4]" style={{ backgroundColor: "var(--beige)" }}>
+                <div className="rounded-xl overflow-hidden aspect-[3/4]" style={{ backgroundColor: "var(--cream)" }}>
                   <img src={PHOTOS.case3} alt="До и после — результат работы" className="w-full h-full object-cover" />
                 </div>
-                <div className="p-4 rounded-xl text-center" style={{ backgroundColor: "var(--beige)" }}>
+                <div className="p-4 rounded-xl text-center" style={{ backgroundColor: "var(--cream)" }}>
                   <p className="font-cormorant text-4xl font-light mb-1" style={{ color: "var(--green)" }}>5</p>
                   <p className="font-golos text-xs" style={{ color: "var(--warm-gray)" }}>сеансов в курсе</p>
                 </div>
@@ -114,8 +114,8 @@ export default function ConversionSections() {
         </div>
       </section>
 
-      {/* CONTACTS */}
-      <section id="contacts" className="py-24" style={{ backgroundColor: "var(--beige)" }}>
+      {/* CONTACTS — Локация и контакты */}
+      <section id="contacts" className="py-24">
         <div className="max-w-6xl mx-auto px-5">
           <RevealSection>
             <span className="inline-block text-xs font-golos font-medium tracking-widest uppercase mb-4" style={{ color: "var(--green)" }}>Контакты</span>
@@ -127,7 +127,7 @@ export default function ConversionSections() {
               { city: "Москва", address: "ул. Янковского, 1с2", place: "Салон красоты «Шёлк»" },
             ].map((loc, i) => (
               <RevealSection key={i} delay={i * 100}>
-                <div className="p-8 rounded-2xl" style={{ backgroundColor: "var(--cream)" }}>
+                <div className="p-8 rounded-2xl" style={{ backgroundColor: "var(--beige)" }}>
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "var(--green-pale)" }}>
                       <Icon name="MapPin" size={22} style={{ color: "var(--green)" }} />
@@ -153,7 +153,7 @@ export default function ConversionSections() {
                 </div>
               </a>
               <a href={WA_URL} target="_blank" rel="noreferrer" className="flex items-center gap-3 p-5 rounded-2xl transition-all hover:scale-105"
-                style={{ backgroundColor: "var(--cream)", color: "var(--graphite)" }}>
+                style={{ backgroundColor: "var(--beige)", color: "var(--graphite)" }}>
                 <Icon name="MessageCircle" size={22} style={{ color: "var(--green)" }} />
                 <div>
                   <p className="font-golos text-xs" style={{ color: "var(--warm-gray)" }}>WhatsApp</p>
@@ -161,7 +161,7 @@ export default function ConversionSections() {
                 </div>
               </a>
               <a href={VK_URL} target="_blank" rel="noreferrer" className="flex items-center gap-3 p-5 rounded-2xl transition-all hover:scale-105"
-                style={{ backgroundColor: "var(--cream)", color: "var(--graphite)" }}>
+                style={{ backgroundColor: "var(--beige)", color: "var(--graphite)" }}>
                 <Icon name="Users" size={22} style={{ color: "var(--green)" }} />
                 <div>
                   <p className="font-golos text-xs" style={{ color: "var(--warm-gray)" }}>ВКонтакте</p>
@@ -173,8 +173,8 @@ export default function ConversionSections() {
         </div>
       </section>
 
-      {/* FINAL CTA */}
-      <section className="py-24">
+      {/* FINAL CTA — Финальный блок с записью */}
+      <section className="py-24" style={{ backgroundColor: "var(--beige)" }}>
         <div className="max-w-3xl mx-auto px-5 text-center">
           <RevealSection>
             <h2 className="font-cormorant text-5xl md:text-6xl font-light mb-6" style={{ color: "var(--graphite)" }}>

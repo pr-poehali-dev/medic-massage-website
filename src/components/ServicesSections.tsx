@@ -8,7 +8,7 @@ import {
 export default function ServicesSections() {
   return (
     <>
-      {/* SYMPTOMS */}
+      {/* SYMPTOMS — С какими запросами обращаются */}
       <section className="py-20" style={{ backgroundColor: "var(--beige)" }}>
         <div className="max-w-6xl mx-auto px-5">
           <RevealSection>
@@ -32,7 +32,7 @@ export default function ServicesSections() {
         </div>
       </section>
 
-      {/* SERVICES */}
+      {/* SERVICES — Направления работы */}
       <section id="services" className="py-24">
         <div className="max-w-6xl mx-auto px-5">
           <RevealSection>
@@ -63,7 +63,7 @@ export default function ServicesSections() {
         </div>
       </section>
 
-      {/* ABOUT */}
+      {/* ABOUT — Обо мне */}
       <section id="about" className="py-24" style={{ backgroundColor: "var(--beige)" }}>
         <div className="max-w-6xl mx-auto px-5">
           <div className="grid md:grid-cols-2 gap-16 items-center">
@@ -118,7 +118,7 @@ export default function ServicesSections() {
         </div>
       </section>
 
-      {/* TRUST */}
+      {/* TRUST — Почему мне доверяют */}
       <section id="why" className="py-24">
         <div className="max-w-6xl mx-auto px-5">
           <RevealSection>
@@ -145,7 +145,7 @@ export default function ServicesSections() {
         </div>
       </section>
 
-      {/* PROCESS */}
+      {/* PROCESS — Как проходит работа */}
       <section id="process" className="py-24" style={{ backgroundColor: "var(--beige)" }}>
         <div className="max-w-6xl mx-auto px-5">
           <RevealSection>
@@ -170,25 +170,7 @@ export default function ServicesSections() {
         </div>
       </section>
 
-      {/* PHOTO GALLERY */}
-      <section className="py-16">
-        <div className="max-w-6xl mx-auto px-5">
-          <RevealSection>
-            <p className="font-golos text-xs font-medium tracking-widest uppercase mb-6 text-center" style={{ color: "var(--warm-gray)" }}>Из рабочего процесса</p>
-          </RevealSection>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-            {[PHOTOS.process2, PHOTOS.process3, PHOTOS.process5, PHOTOS.process6, PHOTOS.case2, PHOTOS.case5].map((src, i) => (
-              <RevealSection key={i} delay={i * 70}>
-                <div className={`rounded-xl overflow-hidden ${i === 0 || i === 5 ? "aspect-[4/5]" : "aspect-square"}`} style={{ backgroundColor: "var(--beige)" }}>
-                  <img src={src} alt={`Процесс работы ${i + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-                </div>
-              </RevealSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* EFFECTS */}
+      {/* EFFECTS — Польза и эффекты */}
       <section className="py-24">
         <div className="max-w-6xl mx-auto px-5">
           <RevealSection>
@@ -212,28 +194,17 @@ export default function ServicesSections() {
         </div>
       </section>
 
-      {/* EXPERT BLOCK */}
+      {/* EXPERT BLOCK — Чем терапевтический отличается от спортивного */}
       <section className="py-20" style={{ backgroundColor: "var(--graphite)" }}>
         <div className="max-w-4xl mx-auto px-5">
           <RevealSection>
             <span className="inline-block text-xs font-golos font-medium tracking-widest uppercase mb-6" style={{ color: "var(--green-light)" }}>Экспертный блок</span>
             <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-8" style={{ color: "#f7f4ef" }}>
-              Чем спортивный массаж<br className="hidden md:block" /> отличается от терапевтического?
+              Чем терапевтический массаж<br className="hidden md:block" /> отличается от спортивного?
             </h2>
           </RevealSection>
           <div className="grid md:grid-cols-2 gap-6">
             <RevealSection delay={100}>
-              <div className="p-6 rounded-2xl border" style={{ borderColor: "rgba(255,255,255,0.1)", backgroundColor: "rgba(255,255,255,0.05)" }}>
-                <div className="flex items-center gap-3 mb-4">
-                  <Icon name="Zap" size={20} style={{ color: "var(--green-light)" }} />
-                  <h3 className="font-cormorant text-2xl font-semibold" style={{ color: "#f7f4ef" }}>Спортивный массаж</h3>
-                </div>
-                <p className="font-golos text-sm leading-relaxed" style={{ color: "rgba(247,244,239,0.7)" }}>
-                  Направлен на работу со здоровым телом: ускоряет восстановление между тренировками, снимает мышечную усталость, улучшает кровоток. Применяется до, во время или после физических нагрузок. Интенсивнее по воздействию.
-                </p>
-              </div>
-            </RevealSection>
-            <RevealSection delay={200}>
               <div className="p-6 rounded-2xl border" style={{ borderColor: "rgba(255,255,255,0.1)", backgroundColor: "rgba(255,255,255,0.05)" }}>
                 <div className="flex items-center gap-3 mb-4">
                   <Icon name="Heart" size={20} style={{ color: "var(--green-light)" }} />
@@ -241,6 +212,17 @@ export default function ServicesSections() {
                 </div>
                 <p className="font-golos text-sm leading-relaxed" style={{ color: "rgba(247,244,239,0.7)" }}>
                   Работает с конкретными жалобами и болью. Глубже анализирует причину: осматривает, тестирует, выбирает методику. Подходит при хронических болях, нарушении осанки, мышечных дисбалансах. Мягче, точнее, системнее.
+                </p>
+              </div>
+            </RevealSection>
+            <RevealSection delay={200}>
+              <div className="p-6 rounded-2xl border" style={{ borderColor: "rgba(255,255,255,0.1)", backgroundColor: "rgba(255,255,255,0.05)" }}>
+                <div className="flex items-center gap-3 mb-4">
+                  <Icon name="Zap" size={20} style={{ color: "var(--green-light)" }} />
+                  <h3 className="font-cormorant text-2xl font-semibold" style={{ color: "#f7f4ef" }}>Спортивный массаж</h3>
+                </div>
+                <p className="font-golos text-sm leading-relaxed" style={{ color: "rgba(247,244,239,0.7)" }}>
+                  Направлен на работу со здоровым телом: ускоряет восстановление между тренировками, снимает мышечную усталость, улучшает кровоток. Применяется до, во время или после физических нагрузок. Интенсивнее по воздействию.
                 </p>
               </div>
             </RevealSection>
@@ -253,7 +235,7 @@ export default function ServicesSections() {
         </div>
       </section>
 
-      {/* WHEN TO BOOK */}
+      {/* WHEN TO BOOK — Когда пора записаться */}
       <section className="py-20" style={{ backgroundColor: "var(--beige)" }}>
         <div className="max-w-4xl mx-auto px-5 text-center">
           <RevealSection>
