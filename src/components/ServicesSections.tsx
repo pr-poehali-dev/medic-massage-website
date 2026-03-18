@@ -194,42 +194,68 @@ export default function ServicesSections() {
         </div>
       </section>
 
-      {/* EXPERT BLOCK — Чем терапевтический отличается от спортивного */}
-      <section className="py-20" style={{ backgroundColor: "var(--graphite)" }}>
-        <div className="max-w-4xl mx-auto px-5">
+      {/* CERTIFICATES — Образование и сертификаты */}
+      <section id="certificates" className="py-24" style={{ backgroundColor: "var(--graphite)" }}>
+        <div className="max-w-5xl mx-auto px-5">
           <RevealSection>
-            <span className="inline-block text-xs font-golos font-medium tracking-widest uppercase mb-6" style={{ color: "var(--green-light)" }}>Экспертный блок</span>
-            <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-8" style={{ color: "#f7f4ef" }}>
-              Чем терапевтический массаж<br className="hidden md:block" /> отличается от спортивного?
+            <span className="inline-block text-xs font-golos font-medium tracking-widest uppercase mb-4" style={{ color: "var(--green-light)" }}>Образование и квалификация</span>
+            <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-4" style={{ color: "#f7f4ef" }}>
+              Подтверждённая экспертиза
             </h2>
+            <p className="font-golos text-base mb-12 max-w-xl" style={{ color: "rgba(247,244,239,0.6)" }}>
+              Медицинское образование — база. Остальное — годы практики, курсы и работа с реальными запросами.
+            </p>
           </RevealSection>
-          <div className="grid md:grid-cols-2 gap-6">
-            <RevealSection delay={100}>
-              <div className="p-6 rounded-2xl border" style={{ borderColor: "rgba(255,255,255,0.1)", backgroundColor: "rgba(255,255,255,0.05)" }}>
-                <div className="flex items-center gap-3 mb-4">
-                  <Icon name="Heart" size={20} style={{ color: "var(--green-light)" }} />
-                  <h3 className="font-cormorant text-2xl font-semibold" style={{ color: "#f7f4ef" }}>Терапевтический массаж</h3>
+
+          {/* Образование */}
+          <div className="grid md:grid-cols-2 gap-5 mb-10">
+            {[
+              { icon: "GraduationCap", title: "Медицинское образование", desc: "Базовое медицинское образование — фундамент понимания анатомии, физиологии и патологий. Работаю не по ощущениям, а по знаниям." },
+              { icon: "Activity", title: "ЛФК и спортивная медицина", desc: "Специализация в лечебной физкультуре и реабилитации. Работа с двигательными паттернами, восстановлением после травм и операций." },
+              { icon: "Layers", title: "Миофасциальные техники", desc: "Углублённая подготовка по работе с фасциальными цепями. Снятие ограничений подвижности через мягкое воздействие на соединительную ткань." },
+              { icon: "RefreshCw", title: "Кинезиотерапия", desc: "Сертифицированная подготовка по кинезиотерапии. Движение как инструмент лечения и восстановления функции." },
+              { icon: "Hand", title: "Мануальная терапия", desc: "Курсы по мягким техникам работы с суставами и позвоночником. Мобилизация без форсирования." },
+              { icon: "Sparkles", title: "Эстетические техники", desc: "Обучение работе с лицом и телом: скульптурирующий массаж, работа с тонусом и мимическими зажимами." },
+            ].map((item, i) => (
+              <RevealSection key={i} delay={(i % 2) * 120}>
+                <div
+                  className="flex gap-4 p-6 rounded-2xl transition-all hover:bg-white/10"
+                  style={{ backgroundColor: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}
+                >
+                  <div
+                    className="flex-shrink-0 w-11 h-11 rounded-full flex items-center justify-center"
+                    style={{ backgroundColor: "rgba(107,143,121,0.2)" }}
+                  >
+                    <Icon name={item.icon} size={20} style={{ color: "var(--green-light)" }} />
+                  </div>
+                  <div>
+                    <h3 className="font-cormorant text-xl font-semibold mb-1.5" style={{ color: "#f7f4ef" }}>{item.title}</h3>
+                    <p className="font-golos text-sm leading-relaxed" style={{ color: "rgba(247,244,239,0.6)" }}>{item.desc}</p>
+                  </div>
                 </div>
-                <p className="font-golos text-sm leading-relaxed" style={{ color: "rgba(247,244,239,0.7)" }}>
-                  Работает с конкретными жалобами и болью. Глубже анализирует причину: осматривает, тестирует, выбирает методику. Подходит при хронических болях, нарушении осанки, мышечных дисбалансах. Мягче, точнее, системнее.
-                </p>
-              </div>
-            </RevealSection>
-            <RevealSection delay={200}>
-              <div className="p-6 rounded-2xl border" style={{ borderColor: "rgba(255,255,255,0.1)", backgroundColor: "rgba(255,255,255,0.05)" }}>
-                <div className="flex items-center gap-3 mb-4">
-                  <Icon name="Zap" size={20} style={{ color: "var(--green-light)" }} />
-                  <h3 className="font-cormorant text-2xl font-semibold" style={{ color: "#f7f4ef" }}>Спортивный массаж</h3>
-                </div>
-                <p className="font-golos text-sm leading-relaxed" style={{ color: "rgba(247,244,239,0.7)" }}>
-                  Направлен на работу со здоровым телом: ускоряет восстановление между тренировками, снимает мышечную усталость, улучшает кровоток. Применяется до, во время или после физических нагрузок. Интенсивнее по воздействию.
-                </p>
-              </div>
-            </RevealSection>
+              </RevealSection>
+            ))}
           </div>
-          <RevealSection delay={300}>
-            <p className="font-golos text-sm mt-8 text-center" style={{ color: "rgba(247,244,239,0.5)" }}>
-              Не уверены, какой формат подойдёт? Напишите — подберём вместе.
+
+          {/* Фото сертификатов / обучения */}
+          <RevealSection delay={200}>
+            <div className="grid grid-cols-3 md:grid-cols-4 gap-3">
+              {[PHOTOS.review1, PHOTOS.process3, PHOTOS.process2, PHOTOS.case2].map((src, i) => (
+                <div
+                  key={i}
+                  className="rounded-xl overflow-hidden aspect-[3/4]"
+                  style={{ backgroundColor: "rgba(255,255,255,0.05)" }}
+                >
+                  <img
+                    src={src}
+                    alt={`Сертификат ${i + 1}`}
+                    className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300"
+                  />
+                </div>
+              ))}
+            </div>
+            <p className="font-golos text-xs text-center mt-4" style={{ color: "rgba(247,244,239,0.3)" }}>
+              Оригиналы сертификатов — по запросу
             </p>
           </RevealSection>
         </div>

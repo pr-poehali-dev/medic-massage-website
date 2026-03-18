@@ -70,7 +70,7 @@ export default function ConversionSections() {
       </section>
 
       {/* CASE — Кейсы / результаты */}
-      <section className="py-24" style={{ backgroundColor: "var(--beige)" }}>
+      <section id="cases" className="py-24" style={{ backgroundColor: "var(--beige)" }}>
         <div className="max-w-4xl mx-auto px-5">
           <RevealSection>
             <span className="inline-block text-xs font-golos font-medium tracking-widest uppercase mb-4" style={{ color: "var(--green)" }}>История клиента</span>
