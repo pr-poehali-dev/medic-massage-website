@@ -18,13 +18,14 @@ export const PHOTOS = {
   cert2: `https://cdn.poehali.dev/files/5373fb3c-a6f8-48e9-b99d-6db86b0ba94c.png`,
   cert3: `https://cdn.poehali.dev/files/892f252e-3957-4f1c-b756-a99b1e58b6d7.png`,
   cert4: `https://cdn.poehali.dev/files/7ec4be06-e48a-4213-b657-4378aec9e0d6.png`,
-  // Фоны для секций (№1-4 из последнего запроса)
-  bg1: `https://cdn.poehali.dev/files/379f976c-5cd7-4b0f-bb39-bb9eb571d183.jpg`,
-  bg2: `https://cdn.poehali.dev/files/b848d6a9-cf63-465e-a6c8-6e3c10d57f80.jpg`,
-  bg3: `${CDN}/process/DSC00842.JPEG`,
-  bg4: `${CDN}/process/DSC00881.JPEG`,
-  // Фото для кейса (№5)
-  caseMain: `${CDN}/cases/IMG_4607.JPG`,
+  // Фоны секций — все уникальные
+  bgServices: `https://cdn.poehali.dev/files/db5e5dda-a4c4-4253-b071-973ffb3d6c2d.JPG`,
+  bgAbout: `https://cdn.poehali.dev/files/4fc94f4f-e7c5-477b-b26d-a47c084670da.png`,
+  bgWhy: `https://cdn.poehali.dev/files/5707a03c-1b94-477b-b70f-c924bbc7c24d.png`,
+  bgEducation: `https://cdn.poehali.dev/files/b2cf05a2-389b-488a-b7e6-7d9c2f395aa6.JPEG`,
+  bgPrice: `https://cdn.poehali.dev/files/d87d7efb-9861-4386-a1b5-74d9e63be289.JPEG`,
+  bgCase: `https://cdn.poehali.dev/files/db5e5dda-a4c4-4253-b071-973ffb3d6c2d.JPG`,
+  bgContacts: `https://cdn.poehali.dev/files/4fc94f4f-e7c5-477b-b26d-a47c084670da.png`,
   // Оригинальные фото процесса
   process2: `${CDN}/process/DSC00842.JPEG`,
   process3: `${CDN}/process/DSC00881.JPEG`,

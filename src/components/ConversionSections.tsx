@@ -16,7 +16,7 @@ export default function ConversionSections() {
     <>
       {/* PRICE — Прайс */}
       <section id="price" className="py-24 relative overflow-hidden">
-        <BgPhoto src={PHOTOS.bg4} opacity={0.94} />
+        <BgPhoto src={PHOTOS.bgPrice} opacity={0.94} />
         <div className="max-w-4xl mx-auto px-5 relative z-10">
           <RevealSection>
             <span className="inline-block text-xs font-golos font-medium tracking-widest uppercase mb-4" style={{ color: "var(--green)" }}>Стоимость</span>
@@ -82,7 +82,7 @@ export default function ConversionSections() {
 
       {/* CASE — Кейсы / результаты */}
       <section id="cases" className="py-24 relative overflow-hidden">
-        <BgPhoto src={PHOTOS.caseMain} opacity={0.93} />
+        <BgPhoto src={PHOTOS.bgCase} opacity={0.93} />
         <div className="max-w-4xl mx-auto px-5 relative z-10">
           <RevealSection>
             <span className="inline-block text-xs font-golos font-medium tracking-widest uppercase mb-4" style={{ color: "var(--green)" }}>История клиента</span>
@@ -114,7 +114,7 @@ export default function ConversionSections() {
               </div>
               <div className="flex flex-col justify-center gap-4">
                 <div className="rounded-xl overflow-hidden aspect-[3/4]" style={{ backgroundColor: "var(--cream)" }}>
-                  <img src={PHOTOS.caseMain} alt="До и после — результат работы" className="w-full h-full object-cover" />
+                  <img src={PHOTOS.bgServices} alt="Массаж — процесс работы" className="w-full h-full object-cover" />
                 </div>
                 <div className="p-4 rounded-xl text-center" style={{ backgroundColor: "var(--cream)" }}>
                   <p className="font-cormorant text-4xl font-light mb-1" style={{ color: "var(--green)" }}>5</p>
@@ -128,7 +128,7 @@ export default function ConversionSections() {
 
       {/* CONTACTS — Локация и контакты */}
       <section id="contacts" className="py-24 relative overflow-hidden">
-        <BgPhoto src={PHOTOS.bg1} opacity={0.95} />
+        <BgPhoto src={PHOTOS.bgContacts} opacity={0.95} />
         <div className="max-w-6xl mx-auto px-5 relative z-10">
           <RevealSection>
             <span className="inline-block text-xs font-golos font-medium tracking-widest uppercase mb-4" style={{ color: "var(--green)" }}>Контакты</span>

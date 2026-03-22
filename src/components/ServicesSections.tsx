@@ -20,7 +20,7 @@ export default function ServicesSections() {
     <>
       {/* SYMPTOMS — С какими запросами обращаются */}
       <section className="py-20 relative overflow-hidden">
-        <BgPhoto src={PHOTOS.bg1} opacity={0.94} />
+        <BgPhoto src={PHOTOS.processWork} opacity={0.94} />
         <div className="max-w-6xl mx-auto px-5 relative z-10">
           <RevealSection>
             <h2 className="font-cormorant text-4xl md:text-5xl font-light text-center mb-4" style={{ color: "var(--graphite)" }}>
@@ -45,7 +45,7 @@ export default function ServicesSections() {
 
       {/* SERVICES — Направления работы */}
       <section id="services" className="py-24 relative overflow-hidden">
-        <BgPhoto src={PHOTOS.bg2} opacity={0.95} />
+        <BgPhoto src={PHOTOS.bgServices} opacity={0.95} />
         <div className="max-w-6xl mx-auto px-5 relative z-10">
           <RevealSection>
             <span className="inline-block text-xs font-golos font-medium tracking-widest uppercase mb-4" style={{ color: "var(--green)" }}>Направления работы</span>
@@ -77,7 +77,7 @@ export default function ServicesSections() {
 
       {/* ABOUT — Обо мне */}
       <section id="about" className="py-24 relative overflow-hidden">
-        <BgPhoto src={PHOTOS.bg3} opacity={0.94} />
+        <BgPhoto src={PHOTOS.bgAbout} opacity={0.94} />
         <div className="max-w-6xl mx-auto px-5 relative z-10">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <RevealSection>
@@ -133,7 +133,7 @@ export default function ServicesSections() {
 
       {/* TRUST — Почему мне доверяют */}
       <section id="why" className="py-24 relative overflow-hidden">
-        <BgPhoto src={PHOTOS.bg4} opacity={0.95} />
+        <BgPhoto src={PHOTOS.bgWhy} opacity={0.95} />
         <div className="max-w-6xl mx-auto px-5 relative z-10">
           <RevealSection>
             <span className="inline-block text-xs font-golos font-medium tracking-widest uppercase mb-4" style={{ color: "var(--green)" }}>Почему доверяют</span>
@@ -190,7 +190,7 @@ export default function ServicesSections() {
 
       {/* EFFECTS — Польза и эффекты */}
       <section className="py-24 relative overflow-hidden">
-        <BgPhoto src={PHOTOS.bg1} opacity={0.94} />
+        <BgPhoto src={PHOTOS.bgEducation} opacity={0.94} />
         <div className="max-w-6xl mx-auto px-5 relative z-10">
           <RevealSection>
             <h2 className="font-cormorant text-4xl md:text-5xl font-light text-center mb-4" style={{ color: "var(--graphite)" }}>
@@ -215,7 +215,7 @@ export default function ServicesSections() {
 
       {/* CERTIFICATES — Образование и сертификаты */}
       <section id="certificates" className="py-24 relative overflow-hidden">
-        <BgPhoto src={PHOTOS.bg2} opacity={0.92} light={false} />
+        <BgPhoto src={PHOTOS.bgPrice} opacity={0.92} light={false} />
         <div className="max-w-5xl mx-auto px-5 relative z-10">
           <RevealSection>
             <span className="inline-block text-xs font-golos font-medium tracking-widest uppercase mb-4" style={{ color: "var(--green-light)" }}>Образование и квалификация</span>
@@ -283,7 +283,7 @@ export default function ServicesSections() {
 
       {/* WHEN TO BOOK — Когда пора записаться */}
       <section className="py-20 relative overflow-hidden">
-        <BgPhoto src={PHOTOS.bg3} opacity={0.94} />
+        <BgPhoto src={PHOTOS.bgServices} opacity={0.94} />
         <div className="max-w-4xl mx-auto px-5 text-center relative z-10">
           <RevealSection>
             <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-8" style={{ color: "var(--graphite)" }}>
