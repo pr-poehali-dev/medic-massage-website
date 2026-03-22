@@ -14,69 +14,69 @@ const BgPhoto = ({ src, opacity = 0.93, light = true }: { src: string; opacity?:
 export default function ConversionSections() {
   return (
     <>
-      {/* PRICE — Прайс */}
-      <section id="price" className="py-24 relative overflow-hidden">
-        <BgPhoto src={PHOTOS.bgPrice} opacity={0.94} />
-        <div className="max-w-4xl mx-auto px-5 relative z-10">
-          <RevealSection>
-            <span className="inline-block text-xs font-golos font-medium tracking-widest uppercase mb-4" style={{ color: "var(--green)" }}>Стоимость</span>
-            <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-12" style={{ color: "var(--graphite)" }}>Прайс</h2>
-          </RevealSection>
-          <div className="grid md:grid-cols-3 gap-5">
-            {prices.map((p, i) => (
-              <RevealSection key={i} delay={i * 100}>
-                <div className={`p-8 rounded-2xl text-center relative transition-all hover:shadow-md ${p.popular ? "ring-2" : ""}`}
-                  style={{
-                    backgroundColor: p.popular ? "var(--green)" : "var(--cream)",
-                    ringColor: p.popular ? "var(--green)" : "transparent"
-                  }}>
-                  {p.popular && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs px-3 py-1 rounded-full font-golos font-medium" style={{ backgroundColor: "var(--graphite)", color: "#fff" }}>
-                      Основной формат
-                    </span>
-                  )}
-                  <p className="font-golos text-sm mb-2" style={{ color: p.popular ? "rgba(255,255,255,0.7)" : "var(--warm-gray)" }}>{p.duration}</p>
-                  <p className="font-cormorant text-4xl font-semibold mb-3" style={{ color: p.popular ? "#fff" : "var(--graphite)" }}>{p.price}</p>
-                  <p className="font-golos text-sm" style={{ color: p.popular ? "rgba(255,255,255,0.8)" : "var(--graphite-light)" }}>{p.desc}</p>
-                </div>
-              </RevealSection>
-            ))}
-          </div>
-          <RevealSection delay={300}>
-            <p className="font-golos text-sm text-center mt-6" style={{ color: "var(--warm-gray)" }}>
-              * Скидка —20% на первый сеанс. Уточняйте актуальные цены при записи.
-            </p>
-          </RevealSection>
-        </div>
-      </section>
-
-      {/* PROMO — Акция на первое посещение */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-5">
-          <RevealSection>
-            <div className="rounded-2xl p-10 md:p-14 text-center relative overflow-hidden" style={{ background: "linear-gradient(135deg, var(--green) 0%, #3a5a48 100%)" }}>
-              <div className="absolute inset-0 pointer-events-none opacity-10" style={{ backgroundImage: "radial-gradient(circle at 80% 20%, rgba(255,255,255,0.3) 0%, transparent 60%)" }} />
-              <span className="inline-block font-cormorant text-8xl font-light mb-4 text-[#f2f2f2]" style={{ color: "rgba(255,255,255,0.15)" }}>-20%</span>
-              <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-4" style={{ color: "#fff" }}>
-                Скидка на первый приём
-              </h2>
-              <p className="font-golos text-base mb-8" style={{ color: "rgba(255,255,255,0.8)" }}>
-                Запишитесь на первый сеанс со скидкой 20%. Просто напишите в WhatsApp или Telegram.
-              </p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <a href={TG_URL} target="_blank" rel="noreferrer" className="flex items-center gap-2 px-7 py-3.5 rounded-full font-golos font-medium transition-all hover:scale-105"
-                  style={{ backgroundColor: "#fff", color: "var(--green)" }}>
-                  <Icon name="Send" size={18} />
-                  Telegram
-                </a>
-                <a href={WA_URL} target="_blank" rel="noreferrer" className="flex items-center gap-2 px-7 py-3.5 rounded-full font-golos font-medium border-2 transition-all hover:scale-105"
-                  style={{ borderColor: "rgba(255,255,255,0.6)", color: "#fff" }}>
-                  <Icon name="MessageCircle" size={18} />
-                  WhatsApp
-                </a>
-              </div>
+      {/* PRICE + PROMO — Прайс и скидка */}
+      <section id="price" className="relative overflow-hidden">
+        <BgPhoto src={PHOTOS.bgPrice} opacity={0.88} light={false} />
+        <div className="relative z-10">
+          {/* Прайс */}
+          <div className="max-w-4xl mx-auto px-5 pt-24 pb-16">
+            <RevealSection>
+              <span className="inline-block text-xs font-golos font-medium tracking-widest uppercase mb-4" style={{ color: "var(--green-light)" }}>Стоимость</span>
+              <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-12" style={{ color: "#f7f4ef" }}>Прайс</h2>
+            </RevealSection>
+            <div className="grid md:grid-cols-3 gap-5">
+              {prices.map((p, i) => (
+                <RevealSection key={i} delay={i * 100}>
+                  <div className={`p-8 rounded-2xl text-center relative transition-all hover:shadow-md ${p.popular ? "ring-2" : ""}`}
+                    style={{
+                      backgroundColor: p.popular ? "var(--green)" : "rgba(247,244,239,0.95)",
+                      ringColor: p.popular ? "var(--green)" : "transparent"
+                    }}>
+                    {p.popular && (
+                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs px-3 py-1 rounded-full font-golos font-medium" style={{ backgroundColor: "#fff", color: "var(--green)" }}>
+                        Основной формат
+                      </span>
+                    )}
+                    <p className="font-golos text-sm mb-2" style={{ color: p.popular ? "rgba(255,255,255,0.7)" : "var(--warm-gray)" }}>{p.duration}</p>
+                    <p className="font-cormorant text-4xl font-semibold mb-3" style={{ color: p.popular ? "#fff" : "var(--graphite)" }}>{p.price}</p>
+                    <p className="font-golos text-sm" style={{ color: p.popular ? "rgba(255,255,255,0.8)" : "var(--graphite-light)" }}>{p.desc}</p>
+                  </div>
+                </RevealSection>
+              ))}
             </div>
-          </RevealSection>
+            <RevealSection delay={300}>
+              <p className="font-golos text-sm text-center mt-6" style={{ color: "rgba(247,244,239,0.5)" }}>
+                * Скидка —20% на первый сеанс. Уточняйте актуальные цены при записи.
+              </p>
+            </RevealSection>
+          </div>
+
+          {/* Промо-блок скидки */}
+          <div className="max-w-4xl mx-auto px-5 pb-24">
+            <RevealSection>
+              <div className="rounded-2xl p-10 md:p-14 text-center relative overflow-hidden" style={{ backgroundColor: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}>
+                <span className="inline-block font-cormorant text-8xl font-light mb-4" style={{ color: "#fff" }}>-20%</span>
+                <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-4" style={{ color: "#fff" }}>
+                  Скидка на первый приём
+                </h2>
+                <p className="font-golos text-base mb-8" style={{ color: "rgba(255,255,255,0.8)" }}>
+                  Запишитесь на первый сеанс со скидкой 20%. Просто напишите в WhatsApp или Telegram.
+                </p>
+                <div className="flex flex-wrap justify-center gap-3">
+                  <a href={TG_URL} target="_blank" rel="noreferrer" className="flex items-center gap-2 px-7 py-3.5 rounded-full font-golos font-medium transition-all hover:scale-105"
+                    style={{ backgroundColor: "#fff", color: "var(--green)" }}>
+                    <Icon name="Send" size={18} />
+                    Telegram
+                  </a>
+                  <a href={WA_URL} target="_blank" rel="noreferrer" className="flex items-center gap-2 px-7 py-3.5 rounded-full font-golos font-medium border-2 transition-all hover:scale-105"
+                    style={{ borderColor: "rgba(255,255,255,0.6)", color: "#fff" }}>
+                    <Icon name="MessageCircle" size={18} />
+                    WhatsApp
+                  </a>
+                </div>
+              </div>
+            </RevealSection>
+          </div>
         </div>
       </section>
 

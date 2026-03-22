@@ -23,7 +23,7 @@ export const PHOTOS = {
   bgAbout: `https://cdn.poehali.dev/files/4fc94f4f-e7c5-477b-b26d-a47c084670da.png`,
   bgWhy: `https://cdn.poehali.dev/files/5707a03c-1b94-477b-b70f-c924bbc7c24d.png`,
   bgEducation: `https://cdn.poehali.dev/files/b2cf05a2-389b-488a-b7e6-7d9c2f395aa6.JPEG`,
-  bgPrice: `https://cdn.poehali.dev/files/d87d7efb-9861-4386-a1b5-74d9e63be289.JPEG`,
+  bgPrice: `https://cdn.poehali.dev/files/00e9bb89-3772-4923-bfe6-88191431e710.JPG`,
   bgCase: `https://cdn.poehali.dev/files/db5e5dda-a4c4-4253-b071-973ffb3d6c2d.JPG`,
   bgContacts: `https://cdn.poehali.dev/files/4fc94f4f-e7c5-477b-b26d-a47c084670da.png`,
   // Оригинальные фото процесса

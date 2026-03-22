@@ -128,7 +128,7 @@ export default function HeroNav() {
             className="absolute inset-0 bg-[#000000ad] rounded-lg"
             style={{
               background:
-                "linear-gradient(to top, rgba(22,26,30,0.95) 0%, rgba(22,26,30,0.7) 40%, rgba(22,26,30,0.45) 70%, rgba(22,26,30,0.3) 100%)",
+                "linear-gradient(to top, rgba(22,26,30,0.97) 0%, rgba(22,26,30,0.8) 35%, rgba(22,26,30,0.6) 65%, rgba(22,26,30,0.5) 100%)",
             }}
           />
         </div>
