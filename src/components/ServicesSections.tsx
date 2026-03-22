@@ -71,9 +71,9 @@ export default function ServicesSections() {
               <div className="relative">
                 <div className="rounded-2xl overflow-hidden aspect-[3/4]" style={{ backgroundColor: "var(--beige-dark)" }}>
                   <img
-                    src={PHOTOS.process4}
+                    src={PHOTOS.about}
                     alt="Дмитрий Хохлов за работой"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-top"
                   />
                 </div>
                 <div className="absolute -bottom-5 -right-5 grid grid-cols-2 gap-3">
@@ -146,8 +146,12 @@ export default function ServicesSections() {
       </section>
 
       {/* PROCESS — Как проходит работа */}
-      <section id="process" className="py-24" style={{ backgroundColor: "var(--beige)" }}>
-        <div className="max-w-6xl mx-auto px-5">
+      <section id="process" className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={PHOTOS.processWork} alt="" className="w-full h-full object-cover object-center" />
+          <div className="absolute inset-0" style={{ background: "rgba(247,244,239,0.93)" }} />
+        </div>
+        <div className="max-w-6xl mx-auto px-5 relative z-10">
           <RevealSection>
             <span className="inline-block text-xs font-golos font-medium tracking-widest uppercase mb-4" style={{ color: "var(--green)" }}>Как проходит работа</span>
             <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-12" style={{ color: "var(--graphite)" }}>
@@ -239,17 +243,17 @@ export default function ServicesSections() {
 
           {/* Фото сертификатов / обучения */}
           <RevealSection delay={200}>
-            <div className="grid grid-cols-3 md:grid-cols-4 gap-3">
-              {[PHOTOS.review1, PHOTOS.process3, PHOTOS.process2, PHOTOS.case2].map((src, i) => (
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              {[PHOTOS.cert1, PHOTOS.cert2, PHOTOS.cert3, PHOTOS.cert4].map((src, i) => (
                 <div
                   key={i}
-                  className="rounded-xl overflow-hidden aspect-[3/4]"
+                  className="rounded-xl overflow-hidden aspect-[4/3]"
                   style={{ backgroundColor: "rgba(255,255,255,0.05)" }}
                 >
                   <img
                     src={src}
                     alt={`Сертификат ${i + 1}`}
-                    className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300"
+                    className="w-full h-full object-cover opacity-85 hover:opacity-100 transition-opacity duration-300 cursor-pointer"
                   />
                 </div>
               ))}

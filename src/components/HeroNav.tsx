@@ -121,7 +121,7 @@ export default function HeroNav() {
           <img
             src={PHOTOS.process1}
             alt="Дмитрий Хохлов — медицинский массаж и реабилитация"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-top"
           />
           {/* Градиентный оверлей снизу */}
           <div

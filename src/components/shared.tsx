@@ -7,8 +7,18 @@ export const VK_URL = "https://vk.com/fuga.massage";
 const CDN = "https://cdn.poehali.dev/projects/c0dec346-cf40-47da-b6b8-4fdb33a3e01e/bucket/files/massage";
 
 export const PHOTOS = {
-  process1: `https://cdn.poehali.dev/projects/c0dec346-cf40-47da-b6b8-4fdb33a3e01e/bucket/259c0e13-60c5-4ab8-8872-7135495acf46.jpg`,
-  process1_orig: `${CDN}/process/DSC00831.JPEG`,
+  // Баннер №1 — Дмитрий в кресле (тёмная форма)
+  process1: `https://cdn.poehali.dev/files/379f976c-5cd7-4b0f-bb39-bb9eb571d183.jpg`,
+  // Обо мне №2 — Дмитрий в белой футболке
+  about: `https://cdn.poehali.dev/files/b848d6a9-cf63-465e-a6c8-6e3c10d57f80.jpg`,
+  // Процесс №3 — массаж (фон секции)
+  processWork: `https://cdn.poehali.dev/files/fc3e7d24-4362-4ca6-b0bf-fa2b3c15411a.JPG`,
+  // Дипломы №4,5,6,7
+  cert1: `https://cdn.poehali.dev/files/3ea45866-fe03-4038-a955-148cee45b7a2.png`,
+  cert2: `https://cdn.poehali.dev/files/5373fb3c-a6f8-48e9-b99d-6db86b0ba94c.png`,
+  cert3: `https://cdn.poehali.dev/files/892f252e-3957-4f1c-b756-a99b1e58b6d7.png`,
+  cert4: `https://cdn.poehali.dev/files/7ec4be06-e48a-4213-b657-4378aec9e0d6.png`,
+  // Оригинальные фото процесса
   process2: `${CDN}/process/DSC00842.JPEG`,
   process3: `${CDN}/process/DSC00881.JPEG`,
   process4: `${CDN}/process/DSC00890.JPEG`,
