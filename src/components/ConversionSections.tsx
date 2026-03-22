@@ -56,7 +56,7 @@ export default function ConversionSections() {
           <RevealSection>
             <div className="rounded-2xl p-10 md:p-14 text-center relative overflow-hidden" style={{ background: "linear-gradient(135deg, var(--green) 0%, #3a5a48 100%)" }}>
               <div className="absolute inset-0 pointer-events-none opacity-10" style={{ backgroundImage: "radial-gradient(circle at 80% 20%, rgba(255,255,255,0.3) 0%, transparent 60%)" }} />
-              <span className="inline-block font-cormorant text-8xl font-light mb-4" style={{ color: "rgba(255,255,255,0.15)" }}>-20%</span>
+              <span className="inline-block font-cormorant text-8xl font-light mb-4 text-[#f2f2f2]" style={{ color: "rgba(255,255,255,0.15)" }}>-20%</span>
               <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-4" style={{ color: "#fff" }}>
                 Скидка на первый приём
               </h2>
