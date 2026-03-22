@@ -5,12 +5,23 @@ import {
   RevealSection,
 } from "@/components/shared";
 
+const BgPhoto = ({ src, opacity = 0.93, light = true }: { src: string; opacity?: number; light?: boolean }) => (
+  <div className="absolute inset-0">
+    <img src={src} alt="" className="w-full h-full object-cover object-center" />
+    <div
+      className="absolute inset-0"
+      style={{ background: light ? `rgba(247,244,239,${opacity})` : `rgba(22,26,30,${opacity})` }}
+    />
+  </div>
+);
+
 export default function ServicesSections() {
   return (
     <>
       {/* SYMPTOMS — С какими запросами обращаются */}
-      <section className="py-20" style={{ backgroundColor: "var(--beige)" }}>
-        <div className="max-w-6xl mx-auto px-5">
+      <section className="py-20 relative overflow-hidden">
+        <BgPhoto src={PHOTOS.bg1} opacity={0.94} />
+        <div className="max-w-6xl mx-auto px-5 relative z-10">
           <RevealSection>
             <h2 className="font-cormorant text-4xl md:text-5xl font-light text-center mb-4" style={{ color: "var(--graphite)" }}>
               С какими запросами обращаются
@@ -33,8 +44,9 @@ export default function ServicesSections() {
       </section>
 
       {/* SERVICES — Направления работы */}
-      <section id="services" className="py-24">
-        <div className="max-w-6xl mx-auto px-5">
+      <section id="services" className="py-24 relative overflow-hidden">
+        <BgPhoto src={PHOTOS.bg2} opacity={0.95} />
+        <div className="max-w-6xl mx-auto px-5 relative z-10">
           <RevealSection>
             <span className="inline-block text-xs font-golos font-medium tracking-widest uppercase mb-4" style={{ color: "var(--green)" }}>Направления работы</span>
             <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-12" style={{ color: "var(--graphite)" }}>
@@ -64,8 +76,9 @@ export default function ServicesSections() {
       </section>
 
       {/* ABOUT — Обо мне */}
-      <section id="about" className="py-24" style={{ backgroundColor: "var(--beige)" }}>
-        <div className="max-w-6xl mx-auto px-5">
+      <section id="about" className="py-24 relative overflow-hidden">
+        <BgPhoto src={PHOTOS.bg3} opacity={0.94} />
+        <div className="max-w-6xl mx-auto px-5 relative z-10">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <RevealSection>
               <div className="relative">
@@ -119,8 +132,9 @@ export default function ServicesSections() {
       </section>
 
       {/* TRUST — Почему мне доверяют */}
-      <section id="why" className="py-24">
-        <div className="max-w-6xl mx-auto px-5">
+      <section id="why" className="py-24 relative overflow-hidden">
+        <BgPhoto src={PHOTOS.bg4} opacity={0.95} />
+        <div className="max-w-6xl mx-auto px-5 relative z-10">
           <RevealSection>
             <span className="inline-block text-xs font-golos font-medium tracking-widest uppercase mb-4" style={{ color: "var(--green)" }}>Почему доверяют</span>
             <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-12" style={{ color: "var(--graphite)" }}>
@@ -130,7 +144,7 @@ export default function ServicesSections() {
           <div className="grid md:grid-cols-2 gap-6">
             {trustPoints.map((t, i) => (
               <RevealSection key={i} delay={i * 100}>
-                <div className="flex gap-5 p-6 rounded-2xl" style={{ backgroundColor: "var(--beige)" }}>
+                <div className="flex gap-5 p-6 rounded-2xl" style={{ backgroundColor: "rgba(247,244,239,0.85)", backdropFilter: "blur(4px)" }}>
                   <div className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: "var(--green-pale)" }}>
                     <Icon name={t.icon} size={22} style={{ color: "var(--green)" }} />
                   </div>
@@ -175,8 +189,9 @@ export default function ServicesSections() {
       </section>
 
       {/* EFFECTS — Польза и эффекты */}
-      <section className="py-24">
-        <div className="max-w-6xl mx-auto px-5">
+      <section className="py-24 relative overflow-hidden">
+        <BgPhoto src={PHOTOS.bg1} opacity={0.94} />
+        <div className="max-w-6xl mx-auto px-5 relative z-10">
           <RevealSection>
             <h2 className="font-cormorant text-4xl md:text-5xl font-light text-center mb-4" style={{ color: "var(--graphite)" }}>
               Что изменится после работы
@@ -186,7 +201,7 @@ export default function ServicesSections() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
             {effects.map((e, i) => (
               <RevealSection key={i} delay={i * 80}>
-                <div className="flex flex-col items-center text-center gap-4 py-10 px-6 rounded-2xl transition-all hover:shadow-sm" style={{ backgroundColor: "var(--beige)" }}>
+                <div className="flex flex-col items-center text-center gap-4 py-10 px-6 rounded-2xl transition-all hover:shadow-sm" style={{ backgroundColor: "rgba(247,244,239,0.85)", backdropFilter: "blur(4px)" }}>
                   <div className="w-14 h-14 rounded-full flex items-center justify-center" style={{ backgroundColor: "var(--green-pale)" }}>
                     <Icon name={e.icon} size={26} style={{ color: "var(--green)" }} />
                   </div>
@@ -199,8 +214,9 @@ export default function ServicesSections() {
       </section>
 
       {/* CERTIFICATES — Образование и сертификаты */}
-      <section id="certificates" className="py-24" style={{ backgroundColor: "var(--graphite)" }}>
-        <div className="max-w-5xl mx-auto px-5">
+      <section id="certificates" className="py-24 relative overflow-hidden">
+        <BgPhoto src={PHOTOS.bg2} opacity={0.92} light={false} />
+        <div className="max-w-5xl mx-auto px-5 relative z-10">
           <RevealSection>
             <span className="inline-block text-xs font-golos font-medium tracking-widest uppercase mb-4" style={{ color: "var(--green-light)" }}>Образование и квалификация</span>
             <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-4" style={{ color: "#f7f4ef" }}>
@@ -266,8 +282,9 @@ export default function ServicesSections() {
       </section>
 
       {/* WHEN TO BOOK — Когда пора записаться */}
-      <section className="py-20" style={{ backgroundColor: "var(--beige)" }}>
-        <div className="max-w-4xl mx-auto px-5 text-center">
+      <section className="py-20 relative overflow-hidden">
+        <BgPhoto src={PHOTOS.bg3} opacity={0.94} />
+        <div className="max-w-4xl mx-auto px-5 text-center relative z-10">
           <RevealSection>
             <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-8" style={{ color: "var(--graphite)" }}>
               Когда пора записаться?

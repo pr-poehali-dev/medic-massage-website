@@ -1,12 +1,23 @@
 import Icon from "@/components/ui/icon";
 import { TG_URL, WA_URL, VK_URL, PHOTOS, prices, RevealSection } from "@/components/shared";
 
+const BgPhoto = ({ src, opacity = 0.93, light = true }: { src: string; opacity?: number; light?: boolean }) => (
+  <div className="absolute inset-0">
+    <img src={src} alt="" className="w-full h-full object-cover object-center" />
+    <div
+      className="absolute inset-0"
+      style={{ background: light ? `rgba(247,244,239,${opacity})` : `rgba(22,26,30,${opacity})` }}
+    />
+  </div>
+);
+
 export default function ConversionSections() {
   return (
     <>
       {/* PRICE — Прайс */}
-      <section id="price" className="py-24" style={{ backgroundColor: "var(--beige)" }}>
-        <div className="max-w-4xl mx-auto px-5">
+      <section id="price" className="py-24 relative overflow-hidden">
+        <BgPhoto src={PHOTOS.bg4} opacity={0.94} />
+        <div className="max-w-4xl mx-auto px-5 relative z-10">
           <RevealSection>
             <span className="inline-block text-xs font-golos font-medium tracking-widest uppercase mb-4" style={{ color: "var(--green)" }}>Стоимость</span>
             <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-12" style={{ color: "var(--graphite)" }}>Прайс</h2>
@@ -70,8 +81,9 @@ export default function ConversionSections() {
       </section>
 
       {/* CASE — Кейсы / результаты */}
-      <section id="cases" className="py-24" style={{ backgroundColor: "var(--beige)" }}>
-        <div className="max-w-4xl mx-auto px-5">
+      <section id="cases" className="py-24 relative overflow-hidden">
+        <BgPhoto src={PHOTOS.caseMain} opacity={0.93} />
+        <div className="max-w-4xl mx-auto px-5 relative z-10">
           <RevealSection>
             <span className="inline-block text-xs font-golos font-medium tracking-widest uppercase mb-4" style={{ color: "var(--green)" }}>История клиента</span>
             <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-12" style={{ color: "var(--graphite)" }}>
@@ -102,7 +114,7 @@ export default function ConversionSections() {
               </div>
               <div className="flex flex-col justify-center gap-4">
                 <div className="rounded-xl overflow-hidden aspect-[3/4]" style={{ backgroundColor: "var(--cream)" }}>
-                  <img src={PHOTOS.case3} alt="До и после — результат работы" className="w-full h-full object-cover" />
+                  <img src={PHOTOS.caseMain} alt="До и после — результат работы" className="w-full h-full object-cover" />
                 </div>
                 <div className="p-4 rounded-xl text-center" style={{ backgroundColor: "var(--cream)" }}>
                   <p className="font-cormorant text-4xl font-light mb-1" style={{ color: "var(--green)" }}>5</p>
@@ -115,8 +127,9 @@ export default function ConversionSections() {
       </section>
 
       {/* CONTACTS — Локация и контакты */}
-      <section id="contacts" className="py-24">
-        <div className="max-w-6xl mx-auto px-5">
+      <section id="contacts" className="py-24 relative overflow-hidden">
+        <BgPhoto src={PHOTOS.bg1} opacity={0.95} />
+        <div className="max-w-6xl mx-auto px-5 relative z-10">
           <RevealSection>
             <span className="inline-block text-xs font-golos font-medium tracking-widest uppercase mb-4" style={{ color: "var(--green)" }}>Контакты</span>
             <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-12" style={{ color: "var(--graphite)" }}>Где принимаю</h2>
@@ -127,96 +140,55 @@ export default function ConversionSections() {
               { city: "Москва", address: "ул. Янковского, 1с2", place: "Салон красоты «Шёлк»" },
             ].map((loc, i) => (
               <RevealSection key={i} delay={i * 100}>
-                <div className="p-8 rounded-2xl" style={{ backgroundColor: "var(--beige)" }}>
+                <div className="p-8 rounded-2xl" style={{ backgroundColor: "rgba(247,244,239,0.9)", backdropFilter: "blur(4px)" }}>
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "var(--green-pale)" }}>
                       <Icon name="MapPin" size={22} style={{ color: "var(--green)" }} />
                     </div>
                     <div>
                       <h3 className="font-cormorant text-2xl font-semibold mb-1" style={{ color: "var(--graphite)" }}>{loc.city}</h3>
-                      <p className="font-golos text-base mb-1" style={{ color: "var(--graphite-light)" }}>{loc.address}</p>
-                      <p className="font-golos text-sm" style={{ color: "var(--warm-gray)" }}>{loc.place}</p>
+                      <p className="font-golos text-sm mb-0.5" style={{ color: "var(--graphite-light)" }}>{loc.address}</p>
+                      <p className="font-golos text-xs" style={{ color: "var(--warm-gray)" }}>{loc.place}</p>
                     </div>
                   </div>
                 </div>
               </RevealSection>
             ))}
           </div>
-          <RevealSection delay={200}>
-            <div className="grid md:grid-cols-3 gap-4">
-              <a href={TG_URL} target="_blank" rel="noreferrer" className="flex items-center gap-3 p-5 rounded-2xl transition-all hover:scale-105"
-                style={{ backgroundColor: "var(--green)", color: "#fff" }}>
-                <Icon name="Send" size={22} />
-                <div>
-                  <p className="font-golos text-xs opacity-70">Telegram-канал</p>
-                  <p className="font-golos font-medium">@fuga_massage</p>
-                </div>
-              </a>
-              <a href={WA_URL} target="_blank" rel="noreferrer" className="flex items-center gap-3 p-5 rounded-2xl transition-all hover:scale-105"
-                style={{ backgroundColor: "var(--beige)", color: "var(--graphite)" }}>
-                <Icon name="MessageCircle" size={22} style={{ color: "var(--green)" }} />
-                <div>
-                  <p className="font-golos text-xs" style={{ color: "var(--warm-gray)" }}>WhatsApp</p>
-                  <p className="font-golos font-medium">+7 999 941-59-00</p>
-                </div>
-              </a>
-              <a href={VK_URL} target="_blank" rel="noreferrer" className="flex items-center gap-3 p-5 rounded-2xl transition-all hover:scale-105"
-                style={{ backgroundColor: "var(--beige)", color: "var(--graphite)" }}>
-                <Icon name="Users" size={22} style={{ color: "var(--green)" }} />
-                <div>
-                  <p className="font-golos text-xs" style={{ color: "var(--warm-gray)" }}>ВКонтакте</p>
-                  <p className="font-golos font-medium">fuga.massage</p>
-                </div>
-              </a>
-            </div>
-          </RevealSection>
-        </div>
-      </section>
 
-      {/* FINAL CTA — Финальный блок с записью */}
-      <section className="py-24" style={{ backgroundColor: "var(--beige)" }}>
-        <div className="max-w-3xl mx-auto px-5 text-center">
-          <RevealSection>
-            <h2 className="font-cormorant text-5xl md:text-6xl font-light mb-6" style={{ color: "var(--graphite)" }}>
-              Готовы восстановиться?
-            </h2>
-            <p className="font-golos text-lg mb-10" style={{ color: "var(--warm-gray)" }}>
-              Напишите — разберёмся в запросе, подберём удобное время и формат.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <a href={TG_URL} target="_blank" rel="noreferrer" className="flex items-center gap-2 px-8 py-4 rounded-full font-golos font-medium text-base transition-all hover:scale-105 hover:opacity-90"
+          {/* Мессенджеры */}
+          <RevealSection delay={200}>
+            <div className="flex flex-wrap gap-4 mb-12">
+              <a href={TG_URL} target="_blank" rel="noreferrer"
+                className="flex items-center gap-3 px-6 py-4 rounded-2xl font-golos font-medium transition-all hover:scale-105"
                 style={{ backgroundColor: "var(--green)", color: "#fff" }}>
                 <Icon name="Send" size={20} />
-                Перейти в Telegram-канал
+                Telegram
               </a>
-              <a href={WA_URL} target="_blank" rel="noreferrer" className="flex items-center gap-2 px-8 py-4 rounded-full font-golos font-medium text-base border-2 transition-all hover:scale-105"
-                style={{ borderColor: "var(--green)", color: "var(--green)" }}>
+              <a href={WA_URL} target="_blank" rel="noreferrer"
+                className="flex items-center gap-3 px-6 py-4 rounded-2xl font-golos font-medium border-2 transition-all hover:scale-105"
+                style={{ borderColor: "var(--green)", color: "var(--green)", backgroundColor: "rgba(247,244,239,0.9)" }}>
                 <Icon name="MessageCircle" size={20} />
-                Записаться в WhatsApp
+                WhatsApp
               </a>
+              <a href={VK_URL} target="_blank" rel="noreferrer"
+                className="flex items-center gap-3 px-6 py-4 rounded-2xl font-golos font-medium border-2 transition-all hover:scale-105"
+                style={{ borderColor: "var(--beige-dark)", color: "var(--graphite-light)", backgroundColor: "rgba(247,244,239,0.9)" }}>
+                <Icon name="Users" size={20} />
+                ВКонтакте
+              </a>
+            </div>
+          </RevealSection>
+
+          {/* Футер */}
+          <RevealSection delay={300}>
+            <div className="pt-10 border-t flex flex-col md:flex-row justify-between items-center gap-4" style={{ borderColor: "var(--beige-dark)" }}>
+              <p className="font-cormorant text-2xl font-light" style={{ color: "var(--graphite)" }}>Дмитрий Хохлов</p>
+              <p className="font-golos text-xs" style={{ color: "var(--warm-gray)" }}>Медицинский массаж и реабилитация · Одинцово и Москва</p>
             </div>
           </RevealSection>
         </div>
       </section>
-
-      {/* FOOTER */}
-      <footer className="py-8 border-t" style={{ borderColor: "var(--beige-dark)" }}>
-        <div className="max-w-6xl mx-auto px-5 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="font-cormorant text-lg" style={{ color: "var(--graphite)" }}>Дмитрий Хохлов</p>
-          <p className="font-golos text-sm" style={{ color: "var(--warm-gray)" }}>Медицинский массаж и реабилитация · Одинцово и Москва</p>
-          <div className="flex items-center gap-4">
-            <a href={TG_URL} target="_blank" rel="noreferrer" className="transition-colors hover:opacity-70">
-              <Icon name="Send" size={18} style={{ color: "var(--warm-gray)" }} />
-            </a>
-            <a href={WA_URL} target="_blank" rel="noreferrer" className="transition-colors hover:opacity-70">
-              <Icon name="MessageCircle" size={18} style={{ color: "var(--warm-gray)" }} />
-            </a>
-            <a href={VK_URL} target="_blank" rel="noreferrer" className="transition-colors hover:opacity-70">
-              <Icon name="Users" size={18} style={{ color: "var(--warm-gray)" }} />
-            </a>
-          </div>
-        </div>
-      </footer>
     </>
   );
 }

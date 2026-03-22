@@ -18,6 +18,13 @@ export const PHOTOS = {
   cert2: `https://cdn.poehali.dev/files/5373fb3c-a6f8-48e9-b99d-6db86b0ba94c.png`,
   cert3: `https://cdn.poehali.dev/files/892f252e-3957-4f1c-b756-a99b1e58b6d7.png`,
   cert4: `https://cdn.poehali.dev/files/7ec4be06-e48a-4213-b657-4378aec9e0d6.png`,
+  // Фоны для секций (№1-4 из последнего запроса)
+  bg1: `https://cdn.poehali.dev/files/379f976c-5cd7-4b0f-bb39-bb9eb571d183.jpg`,
+  bg2: `https://cdn.poehali.dev/files/b848d6a9-cf63-465e-a6c8-6e3c10d57f80.jpg`,
+  bg3: `${CDN}/process/DSC00842.JPEG`,
+  bg4: `${CDN}/process/DSC00881.JPEG`,
+  // Фото для кейса (№5)
+  caseMain: `${CDN}/cases/IMG_4607.JPG`,
   // Оригинальные фото процесса
   process2: `${CDN}/process/DSC00842.JPEG`,
   process3: `${CDN}/process/DSC00881.JPEG`,
