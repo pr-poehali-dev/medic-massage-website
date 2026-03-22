@@ -215,7 +215,7 @@ export default function ServicesSections() {
 
       {/* CERTIFICATES — Образование и сертификаты */}
       <section id="certificates" className="py-24 relative overflow-hidden">
-        <BgPhoto src={PHOTOS.bgPrice} opacity={0.92} light={false} />
+        <BgPhoto src={PHOTOS.bgEducation} opacity={0.7} light={false} />
         <div className="max-w-5xl mx-auto px-5 relative z-10">
           <RevealSection>
             <span className="inline-block text-xs font-golos font-medium tracking-widest uppercase mb-4" style={{ color: "var(--green-light)" }}>Образование и квалификация</span>
