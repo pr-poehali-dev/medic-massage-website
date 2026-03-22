@@ -125,7 +125,7 @@ export default function HeroNav() {
           />
           {/* Градиентный оверлей снизу */}
           <div
-            className="absolute inset-0"
+            className="absolute inset-0 bg-[#000000b8]"
             style={{
               background:
                 "linear-gradient(to top, rgba(22,26,30,0.92) 0%, rgba(22,26,30,0.55) 45%, rgba(22,26,30,0.15) 75%, transparent 100%)",
@@ -137,7 +137,7 @@ export default function HeroNav() {
         <div className="relative z-10 w-full max-w-6xl mx-auto px-5 pb-16 md:pb-24">
           <RevealSection delay={0}>
             <span
-              className="inline-flex items-center gap-2 text-xs font-golos font-medium tracking-widest uppercase mb-6 px-3 py-1.5 rounded-full"
+              className="inline-flex items-center gap-2 text-xs font-golos tracking-widest uppercase mb-6 px-3 py-1.5 rounded-full font-bold text-[#ffffff]"
               style={{ backgroundColor: "rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.9)", border: "1px solid rgba(255,255,255,0.2)" }}
             >
               <span style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: "var(--green-light)", display: "inline-block" }} />
@@ -147,11 +147,11 @@ export default function HeroNav() {
 
           <RevealSection delay={100}>
             <h1
-              className="font-cormorant font-light leading-[1.08] mb-6"
+              className="font-cormorant leading-[1.08] mb-6 font-medium"
               style={{ color: "#fff", fontSize: "clamp(2.8rem, 7vw, 5.5rem)" }}
             >
               Медицинский массаж<br />
-              <em className="not-italic" style={{ color: "var(--green-light)" }}>и реабилитация</em>
+              <em className="not-italic px-0 font-medium text-[#4fa871]" style={{ color: "var(--green-light)" }}>и реабилитация</em>
             </h1>
           </RevealSection>
 
