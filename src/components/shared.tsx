@@ -7,7 +7,8 @@ export const VK_URL = "https://vk.com/fuga.massage";
 const CDN = "https://cdn.poehali.dev/projects/c0dec346-cf40-47da-b6b8-4fdb33a3e01e/bucket/files/massage";
 
 export const PHOTOS = {
-  process1: `${CDN}/process/DSC00831.JPEG`,
+  process1: `https://cdn.poehali.dev/projects/c0dec346-cf40-47da-b6b8-4fdb33a3e01e/bucket/259c0e13-60c5-4ab8-8872-7135495acf46.jpg`,
+  process1_orig: `${CDN}/process/DSC00831.JPEG`,
   process2: `${CDN}/process/DSC00842.JPEG`,
   process3: `${CDN}/process/DSC00881.JPEG`,
   process4: `${CDN}/process/DSC00890.JPEG`,
