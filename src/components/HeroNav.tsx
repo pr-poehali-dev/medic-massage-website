@@ -125,7 +125,7 @@ export default function HeroNav() {
           />
           {/* Градиентный оверлей снизу */}
           <div
-            className="absolute inset-0 bg-[#000000a6]"
+            className="absolute inset-0 bg-[#000000ad] rounded-lg"
             style={{
               background:
                 "linear-gradient(to top, rgba(22,26,30,0.92) 0%, rgba(22,26,30,0.55) 45%, rgba(22,26,30,0.15) 75%, transparent 100%)",
