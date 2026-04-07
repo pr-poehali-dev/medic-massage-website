@@ -1,5 +1,6 @@
+import { useState } from "react";
 import Icon from "@/components/ui/icon";
-import { TG_URL, WA_URL, VK_URL, PHOTOS, prices, RevealSection } from "@/components/shared";
+import { TG_URL, WA_URL, PHOTOS, RevealSection } from "@/components/shared";
 
 const BgPhoto = ({ src, opacity = 0.93, light = true }: { src: string; opacity?: number; light?: boolean }) => (
   <div className="absolute inset-0">
@@ -11,122 +12,123 @@ const BgPhoto = ({ src, opacity = 0.93, light = true }: { src: string; opacity?:
   </div>
 );
 
+function ContactForm() {
+  const [name, setName] = useState("");
+  const [problem, setProblem] = useState("");
+  const [sent, setSent] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const text = `Заявка с сайта\n\nИмя: ${name}\nПроблема: ${problem}`;
+    const encoded = encodeURIComponent(text);
+    window.open(`https://wa.me/79999415900?text=${encoded}`, "_blank");
+    setSent(true);
+  };
+
+  if (sent) {
+    return (
+      <div className="text-center py-10">
+        <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: "var(--green-pale)" }}>
+          <Icon name="Check" size={32} style={{ color: "var(--green)" }} />
+        </div>
+        <h3 className="font-cormorant text-2xl font-semibold mb-2" style={{ color: "var(--graphite)" }}>Сообщение отправлено</h3>
+        <p className="font-golos text-sm" style={{ color: "var(--warm-gray)" }}>Дмитрий ответит, сможет ли помочь</p>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div>
+        <label className="font-golos text-sm font-medium mb-1.5 block" style={{ color: "var(--graphite)" }}>Ваше имя</label>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+          placeholder="Как к вам обращаться"
+          className="w-full px-4 py-3 rounded-xl font-golos text-sm outline-none transition-all focus:ring-2"
+          style={{ backgroundColor: "var(--cream)", border: "1px solid var(--beige-dark)", color: "var(--graphite)", ringColor: "var(--green)" } as React.CSSProperties}
+        />
+      </div>
+      <div>
+        <label className="font-golos text-sm font-medium mb-1.5 block" style={{ color: "var(--graphite)" }}>Опишите вашу проблему</label>
+        <textarea
+          value={problem}
+          onChange={(e) => setProblem(e.target.value)}
+          required
+          rows={4}
+          placeholder="Что беспокоит, как давно, что уже пробовали..."
+          className="w-full px-4 py-3 rounded-xl font-golos text-sm outline-none transition-all focus:ring-2 resize-none"
+          style={{ backgroundColor: "var(--cream)", border: "1px solid var(--beige-dark)", color: "var(--graphite)", ringColor: "var(--green)" } as React.CSSProperties}
+        />
+      </div>
+      <button
+        type="submit"
+        className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-golos font-medium transition-all hover:scale-105"
+        style={{ backgroundColor: "var(--green)", color: "#fff" }}
+      >
+        <Icon name="Send" size={18} /> Отправить
+      </button>
+      <p className="font-golos text-xs text-center" style={{ color: "var(--warm-gray)" }}>
+        Дмитрий ответит, сможет ли помочь
+      </p>
+    </form>
+  );
+}
+
 export default function ConversionSections() {
   return (
     <>
-      {/* PRICE + PROMO — Прайс и скидка */}
+      {/* PRICE + PROMO — Цена с перечёркнутой стоимостью */}
       <section id="price" className="relative overflow-hidden">
         <BgPhoto src={PHOTOS.bgPrice} opacity={0.88} light={false} />
         <div className="relative z-10">
-          {/* Прайс */}
           <div className="max-w-4xl mx-auto px-5 pt-24 pb-16">
             <RevealSection>
               <span className="inline-block text-xs font-golos font-medium tracking-widest uppercase mb-4" style={{ color: "var(--green-light)" }}>Стоимость</span>
-              <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-12" style={{ color: "#f7f4ef" }}>Прайс</h2>
+              <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-4" style={{ color: "#f7f4ef" }}>Терапевтический массаж, 60 мин</h2>
+              <p className="font-golos text-base mb-12" style={{ color: "rgba(247,244,239,0.6)" }}>Полноценный сеанс — основной формат работы</p>
             </RevealSection>
-            <div className="grid md:grid-cols-3 gap-5">
-              {prices.map((p, i) => (
-                <RevealSection key={i} delay={i * 100}>
-                  <div className={`p-8 rounded-2xl text-center relative transition-all hover:shadow-md ${p.popular ? "ring-2" : ""}`}
-                    style={{
-                      backgroundColor: p.popular ? "var(--green)" : "rgba(247,244,239,0.95)",
-                      ringColor: p.popular ? "var(--green)" : "transparent"
-                    }}>
-                    {p.popular && (
-                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs px-3 py-1 rounded-full font-golos font-medium" style={{ backgroundColor: "#fff", color: "var(--green)" }}>
-                        Основной формат
-                      </span>
-                    )}
-                    <p className="font-golos text-sm mb-2" style={{ color: p.popular ? "rgba(255,255,255,0.7)" : "var(--warm-gray)" }}>{p.duration}</p>
-                    <p className="font-cormorant text-4xl font-semibold mb-3" style={{ color: p.popular ? "#fff" : "var(--graphite)" }}>{p.price}</p>
-                    <p className="font-golos text-sm" style={{ color: p.popular ? "rgba(255,255,255,0.8)" : "var(--graphite-light)" }}>{p.desc}</p>
-                  </div>
-                </RevealSection>
-              ))}
-            </div>
-            <RevealSection delay={300}>
-              <p className="font-golos text-sm text-center mt-6" style={{ color: "rgba(247,244,239,0.5)" }}>
-                * Скидка —20% на первый сеанс. Уточняйте актуальные цены при записи.
+
+            <RevealSection delay={100}>
+              <div className="max-w-md mx-auto p-10 rounded-2xl text-center" style={{ backgroundColor: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}>
+                <p className="font-golos text-lg mb-2 line-through" style={{ color: "rgba(247,244,239,0.4)" }}>2 500 ₽</p>
+                <p className="font-cormorant text-6xl md:text-7xl font-semibold mb-3" style={{ color: "#fff" }}>1 750 ₽</p>
+                <span className="inline-block px-4 py-1.5 rounded-full font-golos text-sm font-medium mb-6" style={{ backgroundColor: "rgba(107,143,121,0.3)", color: "var(--green-light)" }}>
+                  Скидка на первый визит
+                </span>
+                <div className="flex flex-col gap-3">
+                  <a
+                    href={WA_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-golos font-medium transition-all hover:scale-105"
+                    style={{ backgroundColor: "var(--green)", color: "#fff" }}
+                  >
+                    <Icon name="MessageCircle" size={18} /> Записаться в WhatsApp
+                  </a>
+                  <button
+                    onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" })}
+                    className="flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-golos font-medium border transition-all hover:scale-105"
+                    style={{ borderColor: "rgba(255,255,255,0.3)", color: "rgba(255,255,255,0.8)" }}
+                  >
+                    <Icon name="FileText" size={18} /> Описать проблему
+                  </button>
+                </div>
+              </div>
+            </RevealSection>
+
+            <RevealSection delay={200}>
+              <p className="font-golos text-sm text-center mt-6" style={{ color: "rgba(247,244,239,0.4)" }}>
+                Также доступны сеансы 30 мин и 90 мин — уточняйте при записи
               </p>
             </RevealSection>
           </div>
-
-          {/* Промо-блок скидки */}
-          <div className="max-w-4xl mx-auto px-5 pb-24">
-            <RevealSection>
-              <div className="rounded-2xl p-10 md:p-14 text-center relative overflow-hidden" style={{ backgroundColor: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}>
-                <span className="inline-block font-cormorant text-8xl font-light mb-4" style={{ color: "#fff" }}>-20%</span>
-                <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-4" style={{ color: "#fff" }}>
-                  Скидка на первый приём
-                </h2>
-                <p className="font-golos text-base mb-8" style={{ color: "rgba(255,255,255,0.8)" }}>
-                  Запишитесь на первый сеанс со скидкой 20%. Просто напишите в WhatsApp или Telegram.
-                </p>
-                <div className="flex flex-wrap justify-center gap-3">
-                  <a href={TG_URL} target="_blank" rel="noreferrer" className="flex items-center gap-2 px-7 py-3.5 rounded-full font-golos font-medium transition-all hover:scale-105"
-                    style={{ backgroundColor: "#fff", color: "var(--green)" }}>
-                    <Icon name="Send" size={18} />
-                    Telegram
-                  </a>
-                  <a href={WA_URL} target="_blank" rel="noreferrer" className="flex items-center gap-2 px-7 py-3.5 rounded-full font-golos font-medium border-2 transition-all hover:scale-105"
-                    style={{ borderColor: "rgba(255,255,255,0.6)", color: "#fff" }}>
-                    <Icon name="MessageCircle" size={18} />
-                    WhatsApp
-                  </a>
-                </div>
-              </div>
-            </RevealSection>
-          </div>
         </div>
       </section>
 
-      {/* CASE — Кейсы / результаты */}
-      <section id="cases" className="py-24 relative overflow-hidden">
-        <BgPhoto src={PHOTOS.bgCase} opacity={0.93} />
-        <div className="max-w-4xl mx-auto px-5 relative z-10">
-          <RevealSection>
-            <span className="inline-block text-xs font-golos font-medium tracking-widest uppercase mb-4" style={{ color: "var(--green)" }}>История клиента</span>
-            <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-12" style={{ color: "var(--graphite)" }}>
-              «Не мог нормально спать из-за шеи»
-            </h2>
-          </RevealSection>
-          <RevealSection delay={100}>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="md:col-span-2 space-y-5">
-                <div className="p-6 rounded-2xl" style={{ backgroundColor: "var(--cream)" }}>
-                  <p className="font-golos text-xs font-medium uppercase tracking-widest mb-3" style={{ color: "var(--warm-gray)" }}>Ситуация</p>
-                  <p className="font-golos text-base leading-relaxed" style={{ color: "var(--graphite-light)" }}>
-                    Мужчина, 38 лет. Сидячая работа, долгое время беспокоила шейно-воротниковая зона — напряжение, ощущение «каски» на голове. Из-за этого сложно засыпать, часто просыпается ночью.
-                  </p>
-                </div>
-                <div className="p-6 rounded-2xl" style={{ backgroundColor: "var(--cream)" }}>
-                  <p className="font-golos text-xs font-medium uppercase tracking-widest mb-3" style={{ color: "var(--warm-gray)" }}>Что сделали</p>
-                  <p className="font-golos text-base leading-relaxed" style={{ color: "var(--graphite-light)" }}>
-                    На первом приёме разобрались в причине: мышечные блоки в шее и грудном отделе, нарушенный баланс нагрузки из-за позы за компьютером. Курс из 5 сеансов — миофасциальный массаж, работа с грудным отделом, рекомендации по позиции за рабочим местом.
-                  </p>
-                </div>
-                <div className="p-6 rounded-2xl" style={{ backgroundColor: "var(--green-pale)" }}>
-                  <p className="font-golos text-xs font-medium uppercase tracking-widest mb-3" style={{ color: "var(--green)" }}>Результат</p>
-                  <p className="font-golos text-base leading-relaxed" style={{ color: "var(--graphite-light)" }}>
-                    После 3-го сеанса начал нормально спать. К концу курса напряжение в шее ушло, «каска» прошла. Сейчас приходит раз в месяц для поддержания результата.
-                  </p>
-                </div>
-              </div>
-              <div className="flex flex-col justify-center gap-4">
-                <div className="rounded-xl overflow-hidden aspect-[3/4]" style={{ backgroundColor: "var(--cream)" }}>
-                  <img src={PHOTOS.bgServices} alt="Массаж — процесс работы" className="w-full h-full object-cover" />
-                </div>
-                <div className="p-4 rounded-xl text-center" style={{ backgroundColor: "var(--cream)" }}>
-                  <p className="font-cormorant text-4xl font-light mb-1" style={{ color: "var(--green)" }}>5</p>
-                  <p className="font-golos text-xs" style={{ color: "var(--warm-gray)" }}>сеансов в курсе</p>
-                </div>
-              </div>
-            </div>
-          </RevealSection>
-        </div>
-      </section>
-
-      {/* CONTACTS — Локация и контакты */}
+      {/* CONTACTS — Локация + контакты + форма */}
       <section id="contacts" className="py-24 relative overflow-hidden">
         <BgPhoto src={PHOTOS.bgContacts} opacity={0.95} />
         <div className="max-w-6xl mx-auto px-5 relative z-10">
@@ -134,6 +136,7 @@ export default function ConversionSections() {
             <span className="inline-block text-xs font-golos font-medium tracking-widest uppercase mb-4" style={{ color: "var(--green)" }}>Контакты</span>
             <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-12" style={{ color: "var(--graphite)" }}>Где принимаю</h2>
           </RevealSection>
+
           <div className="grid md:grid-cols-2 gap-6 mb-12">
             {[
               { city: "Одинцово", address: "ул. Чистяковой, 42", place: "Салон красоты «Мастер»" },
@@ -156,35 +159,80 @@ export default function ConversionSections() {
             ))}
           </div>
 
-          {/* Мессенджеры */}
+          {/* Способы связи */}
           <RevealSection delay={200}>
-            <div className="flex flex-wrap gap-4 mb-12">
-              <a href={TG_URL} target="_blank" rel="noreferrer"
-                className="flex items-center gap-3 px-6 py-4 rounded-2xl font-golos font-medium transition-all hover:scale-105"
-                style={{ backgroundColor: "var(--green)", color: "#fff" }}>
-                <Icon name="Send" size={20} />
-                Telegram
-              </a>
+            <h3 className="font-cormorant text-2xl font-semibold mb-6" style={{ color: "var(--graphite)" }}>3 способа связаться</h3>
+            <div className="grid md:grid-cols-3 gap-4 mb-12">
               <a href={WA_URL} target="_blank" rel="noreferrer"
-                className="flex items-center gap-3 px-6 py-4 rounded-2xl font-golos font-medium border-2 transition-all hover:scale-105"
-                style={{ borderColor: "var(--green)", color: "var(--green)", backgroundColor: "rgba(247,244,239,0.9)" }}>
-                <Icon name="MessageCircle" size={20} />
-                WhatsApp
+                className="flex items-center gap-3 px-6 py-5 rounded-2xl font-golos font-medium transition-all hover:scale-105"
+                style={{ backgroundColor: "var(--green)", color: "#fff" }}>
+                <Icon name="MessageCircle" size={22} />
+                <div>
+                  <p className="font-medium">WhatsApp</p>
+                  <p className="text-xs opacity-75">Основной канал связи</p>
+                </div>
               </a>
-              <a href={VK_URL} target="_blank" rel="noreferrer"
-                className="flex items-center gap-3 px-6 py-4 rounded-2xl font-golos font-medium border-2 transition-all hover:scale-105"
+              <a href={TG_URL} target="_blank" rel="noreferrer"
+                className="flex items-center gap-3 px-6 py-5 rounded-2xl font-golos font-medium border-2 transition-all hover:scale-105"
+                style={{ borderColor: "var(--green)", color: "var(--green)", backgroundColor: "rgba(247,244,239,0.9)" }}>
+                <Icon name="Send" size={22} />
+                <div>
+                  <p className="font-medium">Telegram</p>
+                  <p className="text-xs" style={{ color: "var(--warm-gray)" }}>Канал с полезным</p>
+                </div>
+              </a>
+              <button
+                onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" })}
+                className="flex items-center gap-3 px-6 py-5 rounded-2xl font-golos font-medium border-2 transition-all hover:scale-105 text-left"
                 style={{ borderColor: "var(--beige-dark)", color: "var(--graphite-light)", backgroundColor: "rgba(247,244,239,0.9)" }}>
-                <Icon name="Users" size={20} />
-                ВКонтакте
+                <Icon name="FileText" size={22} />
+                <div>
+                  <p className="font-medium">Форма на сайте</p>
+                  <p className="text-xs" style={{ color: "var(--warm-gray)" }}>Опишите проблему</p>
+                </div>
+              </button>
+            </div>
+          </RevealSection>
+
+          {/* Форма обратной связи */}
+          <RevealSection delay={300}>
+            <div id="contact-form" className="max-w-lg mx-auto p-8 rounded-2xl" style={{ backgroundColor: "rgba(247,244,239,0.95)", border: "1px solid var(--beige-dark)" }}>
+              <h3 className="font-cormorant text-2xl font-semibold mb-2 text-center" style={{ color: "var(--graphite)" }}>Опишите вашу проблему</h3>
+              <p className="font-golos text-sm text-center mb-6" style={{ color: "var(--warm-gray)" }}>Я отвечу, смогу ли помочь</p>
+              <ContactForm />
+            </div>
+          </RevealSection>
+        </div>
+      </section>
+
+      {/* FINAL CTA */}
+      <section className="py-20 relative overflow-hidden">
+        <BgPhoto src={PHOTOS.bgEducation} opacity={0.7} light={false} />
+        <div className="max-w-3xl mx-auto px-5 text-center relative z-10">
+          <RevealSection>
+            <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-4" style={{ color: "#f7f4ef" }}>
+              Готовы начать?
+            </h2>
+            <p className="font-golos text-base mb-8" style={{ color: "rgba(247,244,239,0.7)" }}>
+              Напишите — я подскажу, какой подход подойдёт именно вам
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              <a href={WA_URL} target="_blank" rel="noreferrer" className="flex items-center gap-2 px-7 py-3.5 rounded-full font-golos font-medium transition-all hover:scale-105"
+                style={{ backgroundColor: "#fff", color: "var(--green)" }}>
+                <Icon name="MessageCircle" size={18} /> WhatsApp
+              </a>
+              <a href={TG_URL} target="_blank" rel="noreferrer" className="flex items-center gap-2 px-7 py-3.5 rounded-full font-golos font-medium border-2 transition-all hover:scale-105"
+                style={{ borderColor: "rgba(255,255,255,0.6)", color: "#fff" }}>
+                <Icon name="Send" size={18} /> Telegram
               </a>
             </div>
           </RevealSection>
 
           {/* Футер */}
-          <RevealSection delay={300}>
-            <div className="pt-10 border-t flex flex-col md:flex-row justify-between items-center gap-4" style={{ borderColor: "var(--beige-dark)" }}>
-              <p className="font-cormorant text-2xl font-light" style={{ color: "var(--graphite)" }}>Дмитрий Хохлов</p>
-              <p className="font-golos text-xs" style={{ color: "var(--warm-gray)" }}>Медицинский массаж и реабилитация · Одинцово и Москва</p>
+          <RevealSection delay={200}>
+            <div className="mt-16 pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4" style={{ borderColor: "rgba(255,255,255,0.15)" }}>
+              <p className="font-cormorant text-xl font-light" style={{ color: "rgba(247,244,239,0.7)" }}>Прикосновение</p>
+              <p className="font-golos text-xs" style={{ color: "rgba(247,244,239,0.4)" }}>Терапевтический массаж и восстановление · Одинцово и Москва</p>
             </div>
           </RevealSection>
         </div>
