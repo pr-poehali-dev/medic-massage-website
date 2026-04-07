@@ -6,7 +6,7 @@ const NAV_LINKS = [
   ["problems", "Проблемы"],
   ["services", "Направления"],
   ["about", "Обо мне"],
-  ["process", "Как работаю"],
+  ["reviews", "Отзывы"],
   ["price", "Цена"],
   ["contacts", "Контакты"],
 ];
@@ -34,9 +34,9 @@ export default function HeroNav() {
             onClick={() => scrollTo("hero")}
             className="flex items-center gap-2 flex-shrink-0"
           >
-            <img src={LOGO_URL} alt="Прикосновение" className="h-8 w-8 rounded-full object-cover" />
+            <img src={LOGO_URL} alt="Прикосновение" className="h-12 w-12 rounded-full object-cover" />
             <span
-              className="font-cormorant text-lg font-semibold tracking-wide"
+              className="font-cormorant text-xl font-semibold tracking-wide"
               style={{ color: navScrolled ? "var(--graphite)" : "#fff" }}
             >
               Прикосновение
@@ -108,9 +108,9 @@ export default function HeroNav() {
       <section id="hero" className="relative min-h-screen flex items-end overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src={PHOTOS.process1}
+            src={PHOTOS.hero}
             alt="Дмитрий Хохлов — терапевтический массаж"
-            className="w-full h-full object-cover object-[center_20%]"
+            className="w-full h-full object-cover object-center"
           />
           <div
             className="absolute inset-0"

@@ -8,6 +8,8 @@ export const LOGO_URL = "https://cdn.poehali.dev/files/b944cd4e-0526-4859-bd39-d
 const CDN = "https://cdn.poehali.dev/projects/c0dec346-cf40-47da-b6b8-4fdb33a3e01e/bucket/files/massage";
 
 export const PHOTOS = {
+  hero: `https://cdn.poehali.dev/projects/c0dec346-cf40-47da-b6b8-4fdb33a3e01e/bucket/f6029b4b-a0c0-4010-aff3-ff0a994e2376.png`,
+  ctaBg: `https://cdn.poehali.dev/files/cf1d5d9b-7ce3-4693-8d97-8a3c3be1326a.JPEG`,
   process1: `https://cdn.poehali.dev/files/379f976c-5cd7-4b0f-bb39-bb9eb571d183.jpg`,
   about: `https://cdn.poehali.dev/files/b848d6a9-cf63-465e-a6c8-6e3c10d57f80.jpg`,
   processWork: `https://cdn.poehali.dev/files/fc3e7d24-4362-4ca6-b0bf-fa2b3c15411a.JPG`,

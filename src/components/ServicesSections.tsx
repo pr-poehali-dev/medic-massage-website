@@ -1,7 +1,7 @@
 import Icon from "@/components/ui/icon";
 import {
   WA_URL, PHOTOS,
-  services, problems, trustPoints, steps, effects,
+  services, problems, effects,
   RevealSection,
 } from "@/components/shared";
 
@@ -164,32 +164,31 @@ export default function ServicesSections() {
         </div>
       </section>
 
-      {/* 4. PROCESS — Как проходит работа */}
-      <section id="process" className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={PHOTOS.processWork} alt="" className="w-full h-full object-cover object-center" />
-          <div className="absolute inset-0" style={{ background: "rgba(247,244,239,0.93)" }} />
-        </div>
+      {/* 4. REVIEWS — Отзывы (скрины) */}
+      <section id="reviews" className="py-24 relative overflow-hidden">
+        <BgPhoto src={PHOTOS.processWork} opacity={0.93} />
         <div className="max-w-6xl mx-auto px-5 relative z-10">
           <RevealSection>
-            <span className="inline-block text-xs font-golos font-medium tracking-widest uppercase mb-4" style={{ color: "var(--green)" }}>Как я работаю</span>
-            <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-12" style={{ color: "var(--graphite)" }}>
-              От первого сообщения до результата
+            <span className="inline-block text-xs font-golos font-medium tracking-widest uppercase mb-4" style={{ color: "var(--green)" }}>Отзывы</span>
+            <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-4" style={{ color: "var(--graphite)" }}>
+              Что говорят клиенты
             </h2>
+            <p className="font-golos text-base mb-12" style={{ color: "var(--warm-gray)" }}>Скриншоты реальных отзывов</p>
           </RevealSection>
-          <div className="flex flex-col gap-0">
-            {steps.map((s, i) => (
-              <RevealSection key={i} delay={i * 80}>
-                <div className="flex gap-6 md:gap-10 items-start py-7 border-b last:border-0" style={{ borderColor: "var(--beige-dark)" }}>
-                  <span className="font-cormorant text-4xl font-light flex-shrink-0 w-16 pt-1" style={{ color: "var(--green)" }}>{s.num}</span>
-                  <div>
-                    <h3 className="font-cormorant text-2xl font-semibold mb-2" style={{ color: "var(--graphite)" }}>{s.title}</h3>
-                    <p className="font-golos text-sm leading-relaxed" style={{ color: "var(--graphite-light)" }}>{s.desc}</p>
-                  </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {[PHOTOS.review1, PHOTOS.case1, PHOTOS.case2].map((src, i) => (
+              <RevealSection key={i} delay={i * 100}>
+                <div className="rounded-2xl overflow-hidden shadow-md" style={{ backgroundColor: "var(--cream)" }}>
+                  <img src={src} alt={`Отзыв ${i + 1}`} className="w-full h-auto object-contain" />
                 </div>
               </RevealSection>
             ))}
           </div>
+          <RevealSection delay={300}>
+            <p className="font-golos text-sm text-center mt-8" style={{ color: "var(--warm-gray)" }}>
+              Здесь будут скриншоты ваших отзывов — пришлите, и я добавлю
+            </p>
+          </RevealSection>
         </div>
       </section>
 

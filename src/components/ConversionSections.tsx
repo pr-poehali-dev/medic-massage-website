@@ -87,41 +87,37 @@ export default function ConversionSections() {
           <div className="max-w-4xl mx-auto px-5 pt-24 pb-16">
             <RevealSection>
               <span className="inline-block text-xs font-golos font-medium tracking-widest uppercase mb-4" style={{ color: "var(--green-light)" }}>Стоимость</span>
-              <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-4" style={{ color: "#f7f4ef" }}>Терапевтический массаж, 60 мин</h2>
-              <p className="font-golos text-base mb-12" style={{ color: "rgba(247,244,239,0.6)" }}>Полноценный сеанс — основной формат работы</p>
+              <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-12" style={{ color: "#f7f4ef" }}>Прайс</h2>
             </RevealSection>
 
-            <RevealSection delay={100}>
-              <div className="max-w-md mx-auto p-10 rounded-2xl text-center" style={{ backgroundColor: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}>
-                <p className="font-golos text-lg mb-2 line-through" style={{ color: "rgba(247,244,239,0.4)" }}>2 500 ₽</p>
-                <p className="font-cormorant text-6xl md:text-7xl font-semibold mb-3" style={{ color: "#fff" }}>1 750 ₽</p>
-                <span className="inline-block px-4 py-1.5 rounded-full font-golos text-sm font-medium mb-6" style={{ backgroundColor: "rgba(107,143,121,0.3)", color: "var(--green-light)" }}>
-                  Скидка на первый визит
-                </span>
-                <div className="flex flex-col gap-3">
-                  <a
-                    href={WA_URL}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-golos font-medium transition-all hover:scale-105"
-                    style={{ backgroundColor: "var(--green)", color: "#fff" }}
-                  >
-                    <Icon name="MessageCircle" size={18} /> Записаться в WhatsApp
-                  </a>
-                  <button
-                    onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" })}
-                    className="flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-golos font-medium border transition-all hover:scale-105"
-                    style={{ borderColor: "rgba(255,255,255,0.3)", color: "rgba(255,255,255,0.8)" }}
-                  >
-                    <Icon name="FileText" size={18} /> Описать проблему
-                  </button>
-                </div>
-              </div>
-            </RevealSection>
+            <div className="grid md:grid-cols-3 gap-5">
+              {[
+                { duration: "0,5 часа", price: "3 000 ₽", desc: "Локальная работа с одной зоной" },
+                { duration: "1 час", price: "5 000 ₽", desc: "Полноценный сеанс — основной формат", popular: true },
+                { duration: "1,5 часа", price: "7 500 ₽", desc: "Расширенная работа, курсовой формат" },
+              ].map((p, i) => (
+                <RevealSection key={i} delay={i * 100}>
+                  <div className={`p-8 rounded-2xl text-center relative transition-all hover:shadow-md ${p.popular ? "ring-2" : ""}`}
+                    style={{
+                      backgroundColor: p.popular ? "var(--green)" : "rgba(247,244,239,0.95)",
+                      ringColor: p.popular ? "var(--green)" : "transparent"
+                    }}>
+                    {p.popular && (
+                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs px-3 py-1 rounded-full font-golos font-medium" style={{ backgroundColor: "#fff", color: "var(--green)" }}>
+                        Основной формат
+                      </span>
+                    )}
+                    <p className="font-golos text-sm mb-2" style={{ color: p.popular ? "rgba(255,255,255,0.7)" : "var(--warm-gray)" }}>{p.duration}</p>
+                    <p className="font-cormorant text-4xl font-semibold mb-3" style={{ color: p.popular ? "#fff" : "var(--graphite)" }}>{p.price}</p>
+                    <p className="font-golos text-sm" style={{ color: p.popular ? "rgba(255,255,255,0.8)" : "var(--graphite-light)" }}>{p.desc}</p>
+                  </div>
+                </RevealSection>
+              ))}
+            </div>
 
-            <RevealSection delay={200}>
-              <p className="font-golos text-sm text-center mt-6" style={{ color: "rgba(247,244,239,0.4)" }}>
-                Также доступны сеансы 30 мин и 90 мин — уточняйте при записи
+            <RevealSection delay={300}>
+              <p className="font-golos text-sm text-center mt-6" style={{ color: "rgba(247,244,239,0.5)" }}>
+                * Скидка —20% на первый сеанс
               </p>
             </RevealSection>
           </div>
@@ -207,7 +203,7 @@ export default function ConversionSections() {
 
       {/* FINAL CTA */}
       <section className="py-20 relative overflow-hidden">
-        <BgPhoto src={PHOTOS.bgEducation} opacity={0.7} light={false} />
+        <BgPhoto src={PHOTOS.ctaBg} opacity={0.85} light={false} />
         <div className="max-w-3xl mx-auto px-5 text-center relative z-10">
           <RevealSection>
             <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-4" style={{ color: "#f7f4ef" }}>
