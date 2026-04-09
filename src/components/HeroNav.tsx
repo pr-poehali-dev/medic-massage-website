@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
-import { WA_URL, PHOTOS, LOGO_URL, RevealSection } from "@/components/shared";
+import { WA_URL, TG_URL, PHOTOS, LOGO_URL, RevealSection } from "@/components/shared";
 
-const NAV_LINKS = [
+const NAV_LINKS: Array<[string, string, boolean?]> = [
   ["problems", "Проблемы"],
   ["services", "Направления"],
   ["about", "Обо мне"],
   ["reviews", "Отзывы"],
-  ["price", "Цена"],
+  ["price", "Цена", true],
   ["contacts", "Контакты"],
 ];
 
@@ -44,15 +44,28 @@ export default function HeroNav() {
           </button>
 
           <div className="hidden lg:flex items-center gap-5 font-golos text-sm">
-            {NAV_LINKS.map(([id, label]) => (
-              <button
-                key={id}
-                onClick={() => scrollTo(id)}
-                className="hover-line transition-colors whitespace-nowrap"
-                style={{ color: navScrolled ? "var(--graphite-light)" : "rgba(255,255,255,0.85)" }}
-              >
-                {label}
-              </button>
+            {NAV_LINKS.map(([id, label, isExternal]) => (
+              isExternal ? (
+                <a
+                  key={id}
+                  href={TG_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover-line transition-colors whitespace-nowrap"
+                  style={{ color: navScrolled ? "var(--graphite-light)" : "rgba(255,255,255,0.85)" }}
+                >
+                  {label}
+                </a>
+              ) : (
+                <button
+                  key={id}
+                  onClick={() => scrollTo(id)}
+                  className="hover-line transition-colors whitespace-nowrap"
+                  style={{ color: navScrolled ? "var(--graphite-light)" : "rgba(255,255,255,0.85)" }}
+                >
+                  {label}
+                </button>
+              )
             ))}
           </div>
 
@@ -80,15 +93,29 @@ export default function HeroNav() {
             className="lg:hidden px-5 pb-6 flex flex-col gap-0 font-golos text-base border-t"
             style={{ backgroundColor: "var(--cream)", borderColor: "var(--beige-dark)" }}
           >
-            {NAV_LINKS.map(([id, label]) => (
-              <button
-                key={id}
-                onClick={() => scrollTo(id)}
-                className="text-left py-3 border-b font-golos text-sm"
-                style={{ borderColor: "var(--beige-dark)", color: "var(--graphite)" }}
-              >
-                {label}
-              </button>
+            {NAV_LINKS.map(([id, label, isExternal]) => (
+              isExternal ? (
+                <a
+                  key={id}
+                  href={TG_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-left py-3 border-b font-golos text-sm block"
+                  style={{ borderColor: "var(--beige-dark)", color: "var(--graphite)" }}
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {label}
+                </a>
+              ) : (
+                <button
+                  key={id}
+                  onClick={() => scrollTo(id)}
+                  className="text-left py-3 border-b font-golos text-sm"
+                  style={{ borderColor: "var(--beige-dark)", color: "var(--graphite)" }}
+                >
+                  {label}
+                </button>
+              )
             ))}
             <div className="flex flex-col gap-3 mt-5">
               <a

@@ -176,7 +176,7 @@ export default function ServicesSections() {
             <p className="font-golos text-base mb-12" style={{ color: "var(--warm-gray)" }}>Скриншоты реальных отзывов</p>
           </RevealSection>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {[PHOTOS.review1, PHOTOS.case1, PHOTOS.case2].map((src, i) => (
+            {[PHOTOS.review1, PHOTOS.review2, PHOTOS.review3].map((src, i) => (
               <RevealSection key={i} delay={i * 100}>
                 <div className="rounded-2xl overflow-hidden shadow-md" style={{ backgroundColor: "var(--cream)" }}>
                   <img src={src} alt={`Отзыв ${i + 1}`} className="w-full h-auto object-contain" />
@@ -184,11 +184,6 @@ export default function ServicesSections() {
               </RevealSection>
             ))}
           </div>
-          <RevealSection delay={300}>
-            <p className="font-golos text-sm text-center mt-8" style={{ color: "var(--warm-gray)" }}>
-              Здесь будут скриншоты ваших отзывов — пришлите, и я добавлю
-            </p>
-          </RevealSection>
         </div>
       </section>
 

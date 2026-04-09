@@ -34,7 +34,9 @@ export const PHOTOS = {
   case3: `${CDN}/cases/IMG_4395.JPG`,
   case4: `${CDN}/cases/IMG_4396.JPG`,
   case5: `${CDN}/cases/IMG_4607.JPG`,
-  review1: `${CDN}/reviews/IMG_0610.jpg`,
+  review1: `https://cdn.poehali.dev/files/edfaab69-9a9b-4667-848d-5fdda08550fc.jpg`,
+  review2: `https://cdn.poehali.dev/files/7976bab9-d797-4288-9f32-f6dadc36c44b.JPG`,
+  review3: `https://cdn.poehali.dev/files/ad349257-8627-4ed6-9d60-e0b6a9e7f455.PNG`,
 };
 
 export const problems = [
