@@ -117,7 +117,7 @@ export default function ConversionSections() {
 
             <RevealSection delay={300}>
               <p className="font-golos text-sm text-center mt-6" style={{ color: "rgba(247,244,239,0.5)" }}>
-                * Скидка —20% на первый сеанс
+                * Скидка —10% на первый сеанс
               </p>
             </RevealSection>
           </div>

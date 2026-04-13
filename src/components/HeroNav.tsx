@@ -149,38 +149,27 @@ export default function HeroNav() {
         </div>
 
         <div className="relative z-10 w-full max-w-6xl mx-auto px-5 pb-16 md:pb-24">
-          <RevealSection delay={0}>
-            <span
-              className="inline-flex items-center gap-2 text-xs font-golos tracking-widest uppercase mb-6 px-3 py-1.5 rounded-full font-bold"
-              style={{ backgroundColor: "rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.9)", border: "1px solid rgba(255,255,255,0.2)" }}
-            >
-              <span style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: "var(--green-light)", display: "inline-block" }} />
-              Медицинское образование · 8+ лет практики
-            </span>
-          </RevealSection>
-
           <RevealSection delay={100}>
             <h1
-              className="font-cormorant leading-[1.08] mb-6 font-medium"
+              className="font-cormorant leading-[1.08] mb-4 font-medium"
               style={{ color: "#fff", fontSize: "clamp(2.8rem, 7vw, 5.5rem)" }}
             >
               Терапевтический массаж<br />
               <em className="not-italic font-medium" style={{ color: "var(--green-light)" }}>и восстановление</em>
             </h1>
+            <p className="font-golos text-sm md:text-base tracking-wide uppercase mb-8" style={{ color: "rgba(255,255,255,0.55)", letterSpacing: "0.15em" }}>
+              Восстановление без таблеток
+            </p>
           </RevealSection>
 
           <RevealSection delay={180}>
-            <p className="font-golos text-base md:text-lg leading-relaxed mb-2 max-w-xl" style={{ color: "rgba(255,255,255,0.82)" }}>
+            <p className="font-golos text-base md:text-lg leading-relaxed mb-10 max-w-xl" style={{ color: "rgba(255,255,255,0.82)" }}>
               Помогаю уменьшить боль, восстановить подвижность и вернуть телу ресурс.
-            </p>
-            <p className="font-golos text-sm md:text-base leading-relaxed mb-10 max-w-2xl" style={{ color: "rgba(255,255,255,0.6)" }}>
-              Терапевтический, восстановительный, спортивный массаж, коррекция осанки, ЛФК,
-              мануальные и миофасциальные техники. Приём в <strong style={{ color: "rgba(255,255,255,0.85)" }}>Одинцово</strong> и <strong style={{ color: "rgba(255,255,255,0.85)" }}>Москве</strong>.
             </p>
           </RevealSection>
 
           <RevealSection delay={260}>
-            <div className="flex flex-wrap items-center gap-3 mb-8">
+            <div className="flex flex-wrap items-center gap-3">
               <a
                 href={WA_URL}
                 target="_blank"
@@ -201,20 +190,8 @@ export default function HeroNav() {
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full font-golos text-sm"
                 style={{ backgroundColor: "rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.75)", border: "1px solid rgba(255,255,255,0.18)" }}
               >
-                <Icon name="Tag" size={14} /> —20% на первый визит
+                <Icon name="Tag" size={14} /> —10% на первый визит
               </span>
-            </div>
-
-            <div className="flex flex-wrap gap-6">
-              {[
-                { num: "8+", label: "лет опыта" },
-                { num: "2", label: "локации" },
-              ].map((s) => (
-                <div key={s.num}>
-                  <p className="font-cormorant text-3xl font-semibold leading-none" style={{ color: "#fff" }}>{s.num}</p>
-                  <p className="font-golos text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.5)" }}>{s.label}</p>
-                </div>
-              ))}
             </div>
           </RevealSection>
         </div>

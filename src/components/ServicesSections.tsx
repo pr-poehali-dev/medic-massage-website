@@ -1,7 +1,7 @@
 import Icon from "@/components/ui/icon";
 import {
   WA_URL, PHOTOS,
-  services, problems, effects,
+  services, problems,
   RevealSection,
 } from "@/components/shared";
 
@@ -51,7 +51,7 @@ export default function ServicesSections() {
           <RevealSection>
             <span className="inline-block text-xs font-golos font-medium tracking-widest uppercase mb-4" style={{ color: "var(--green)" }}>Направления работы</span>
             <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-12" style={{ color: "var(--graphite)" }}>
-              Комплекс методик для вашего тела
+              Персонально для вашего здоровья
             </h2>
           </RevealSection>
           <div className="grid md:grid-cols-3 gap-5">
@@ -92,7 +92,7 @@ export default function ServicesSections() {
                   </p>
                 </div>
                 <div className="rounded-xl overflow-hidden aspect-[4/3]" style={{ backgroundColor: "var(--beige)" }}>
-                  <img src={PHOTOS.processWork} alt="Висцеральная терапия" className="w-full h-full object-cover" />
+                  <img src="https://cdn.poehali.dev/projects/c0dec346-cf40-47da-b6b8-4fdb33a3e01e/files/ff98df0c-c596-4047-aaf0-ec2bdf8e468e.jpg" alt="Висцеральная терапия" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
@@ -187,78 +187,8 @@ export default function ServicesSections() {
         </div>
       </section>
 
-      {/* 5. EFFECTS — Польза и эффекты (коротко) */}
-      <section className="py-24 relative overflow-hidden">
-        <BgPhoto src={PHOTOS.bgEducation} opacity={0.94} />
-        <div className="max-w-6xl mx-auto px-5 relative z-10">
-          <RevealSection>
-            <h2 className="font-cormorant text-4xl md:text-5xl font-light text-center mb-4" style={{ color: "var(--graphite)" }}>
-              Что изменится после работы
-            </h2>
-            <p className="font-golos text-center mb-14" style={{ color: "var(--warm-gray)" }}>Реальные эффекты, которые замечают клиенты</p>
-          </RevealSection>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
-            {effects.map((e, i) => (
-              <RevealSection key={i} delay={i * 80}>
-                <div className="flex flex-col items-center text-center gap-4 py-10 px-6 rounded-2xl transition-all hover:shadow-sm" style={{ backgroundColor: "rgba(247,244,239,0.85)", backdropFilter: "blur(4px)" }}>
-                  <div className="w-14 h-14 rounded-full flex items-center justify-center" style={{ backgroundColor: "var(--green-pale)" }}>
-                    <Icon name={e.icon} size={26} style={{ color: "var(--green)" }} />
-                  </div>
-                  <p className="font-cormorant text-xl font-medium" style={{ color: "var(--graphite)" }}>{e.label}</p>
-                </div>
-              </RevealSection>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* 6. EXPERT — Чем отличается спортивный от терапевтического */}
-      <section className="py-24 relative overflow-hidden">
-        <BgPhoto src={PHOTOS.bgWhy} opacity={0.95} />
-        <div className="max-w-5xl mx-auto px-5 relative z-10">
-          <RevealSection>
-            <span className="inline-block text-xs font-golos font-medium tracking-widest uppercase mb-4" style={{ color: "var(--green)" }}>Экспертный блок</span>
-            <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-12" style={{ color: "var(--graphite)" }}>
-              Спортивный vs терапевтический массаж
-            </h2>
-          </RevealSection>
-          <RevealSection delay={100}>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="p-8 rounded-2xl" style={{ backgroundColor: "var(--cream)" }}>
-                <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: "var(--green-pale)" }}>
-                  <Icon name="Zap" size={24} style={{ color: "var(--green)" }} />
-                </div>
-                <h3 className="font-cormorant text-2xl font-semibold mb-4" style={{ color: "var(--graphite)" }}>Спортивный массаж</h3>
-                <ul className="font-golos text-sm leading-relaxed space-y-2" style={{ color: "var(--graphite-light)" }}>
-                  <li className="flex gap-2"><Icon name="Check" size={16} className="flex-shrink-0 mt-0.5" style={{ color: "var(--green)" }} /> Для спортсменов и активных людей</li>
-                  <li className="flex gap-2"><Icon name="Check" size={16} className="flex-shrink-0 mt-0.5" style={{ color: "var(--green)" }} /> Ускоряет восстановление после тренировок</li>
-                  <li className="flex gap-2"><Icon name="Check" size={16} className="flex-shrink-0 mt-0.5" style={{ color: "var(--green)" }} /> Снижает риск травм</li>
-                  <li className="flex gap-2"><Icon name="Check" size={16} className="flex-shrink-0 mt-0.5" style={{ color: "var(--green)" }} /> Интенсивная работа с мышцами</li>
-                  <li className="flex gap-2"><Icon name="Check" size={16} className="flex-shrink-0 mt-0.5" style={{ color: "var(--green)" }} /> Фокус на конкретные группы мышц</li>
-                </ul>
-              </div>
-              <div className="p-8 rounded-2xl" style={{ backgroundColor: "var(--green)", color: "#fff" }}>
-                <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: "rgba(255,255,255,0.15)" }}>
-                  <Icon name="Heart" size={24} style={{ color: "#fff" }} />
-                </div>
-                <h3 className="font-cormorant text-2xl font-semibold mb-4">Терапевтический массаж</h3>
-                <ul className="font-golos text-sm leading-relaxed space-y-2" style={{ color: "rgba(255,255,255,0.85)" }}>
-                  <li className="flex gap-2"><Icon name="Check" size={16} className="flex-shrink-0 mt-0.5" style={{ color: "#fff" }} /> Для всех, у кого есть боль или дискомфорт</li>
-                  <li className="flex gap-2"><Icon name="Check" size={16} className="flex-shrink-0 mt-0.5" style={{ color: "#fff" }} /> Работа с причиной, а не симптомом</li>
-                  <li className="flex gap-2"><Icon name="Check" size={16} className="flex-shrink-0 mt-0.5" style={{ color: "#fff" }} /> Мягкое и бережное воздействие</li>
-                  <li className="flex gap-2"><Icon name="Check" size={16} className="flex-shrink-0 mt-0.5" style={{ color: "#fff" }} /> Комплексный подход к телу</li>
-                  <li className="flex gap-2"><Icon name="Check" size={16} className="flex-shrink-0 mt-0.5" style={{ color: "#fff" }} /> Долгосрочный результат без таблеток</li>
-                </ul>
-              </div>
-            </div>
-          </RevealSection>
-          <RevealSection delay={200}>
-            <p className="font-golos text-sm text-center mt-8 max-w-2xl mx-auto" style={{ color: "var(--warm-gray)" }}>
-              Не знаете, что выбрать? Напишите — я подскажу, какой подход подойдёт именно вам.
-            </p>
-          </RevealSection>
-        </div>
-      </section>
+
     </>
   );
 }
